@@ -1,16 +1,18 @@
-$(document).ready(function(){
+$(document).ready(function() {
+    console.log("Document ready!");
+
     $(window).scroll(function(){
         // sticky navbar on scroll script
         if(this.scrollY > 20){
             $('.navbar').addClass("sticky");
-        }else{
+        } else {
             $('.navbar').removeClass("sticky");
         }
 
         // scroll-up button show/hide script
         if(this.scrollY > 500){
             $('.scroll-up-btn').addClass("show");
-        }else{
+        } else {
             $('.scroll-up-btn').removeClass("show");
         }
     });
@@ -22,8 +24,8 @@ $(document).ready(function(){
         $('html').css("scrollBehavior", "auto");
     });
 
+    // applying smooth scroll on menu items click
     $('.navbar .menu li a').click(function(){
-        // applying again smooth scroll on menu items click
         $('html').css("scrollBehavior", "smooth");
     });
 
@@ -33,7 +35,7 @@ $(document).ready(function(){
         $('.menu-btn i').toggleClass("active");
     });
 
-    // typing text animation script
+    // typing text animation script for two elements
     var typed = new Typed(".typing", {
         strings: ["Professor"],
         typeSpeed: 100,
@@ -41,36 +43,37 @@ $(document).ready(function(){
         loop: true
     });
 
-    var typed = new Typed(".typing-2", {
+    var typed2 = new Typed(".typing-2", {
         strings: ["Professor"],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
     });
 
-    // owl carousel script
-    $('.carousel').owlCarousel({
-        margin: 20,
+    // Get the current page URL
+    const currentPageUrl = window.location.href;
+
+    // Check if the current page is the home page
+    if (currentPageUrl.endsWith("/index.html") || currentPageUrl.endsWith("/") || currentPageUrl.endsWith("/home")) {
+        // Add a class to the logo element to apply fixed positioning
+        const logoElement = document.getElementById('logo');
+        logoElement.classList.add('fixed-logo');
+    }
+
+    // Initialize Owl Carousel
+    $('.owl-carousel').owlCarousel({
         loop: true,
+        margin: 20,
+        nav: true,
+        items: 3, // Adjust the number of items as needed
         autoplay: true,
-        autoplayTimeOut: 2000,
-        autoplayHoverPause: true,
-        responsive: {
-            0:{
-                items: 1,
-                nav: false
-            },
-            600:{
-                items: 2,
-                nav: false
-            },
-            1000:{
-                items: 3,
-                nav: false
-            }
-        }
+        autoplayTimeout: 2000, // Adjust the autoplay speed if needed
+        autoplayHoverPause: true
+    }).on('initialized.owl.carousel', function(event) {
+        console.log('Owl Carousel initialized');
     });
 
+    // Handle form submission
     document.querySelector('form').addEventListener('submit', function (e) {
         e.preventDefault();
 
@@ -91,6 +94,7 @@ $(document).ready(function(){
         });
     });
 
+    // Handle URL parameters for error messages
     const urlParams = new URLSearchParams(window.location.search);
     const status = urlParams.get('status');
     const errorMessage = document.getElementById('error-message');
