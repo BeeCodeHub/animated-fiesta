@@ -350,7 +350,6 @@ section .title::after {
 .collaborations {
     display: block;
     padding: 60px 0;
-    background: #f7f7f7;
 }
 
 .collaborations .max-width {
@@ -369,31 +368,20 @@ section .title::after {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    justify-content: center; /* Centers the cards horizontally */
 }
 
 .collaborations .carousel .card {
-    background: #fff;
-    border-radius: 6px;
-    padding: 25px 35px;
     text-align: center;
     overflow: hidden;
     transition: all 0.3s ease;
+    background: none; /* Removes background */
+    padding: 0; /* Removes padding */
+    border: none; /* Removes border */
 }
 
 .collaborations .carousel .card:hover {
-    background: crimson;
-}
-
-.collaborations .carousel .box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.collaborations .carousel .card:hover .box {
-    transform: scale(1.05);
+    background: none; /* Ensures no background on hover */
 }
 
 .collaborations .text {
@@ -414,7 +402,6 @@ section .title::after {
 .collaborations .carousel .card:hover img {
     border-color: #fff;
 }
-
 
 .contact .contact-content .column{
     width: calc(50% - 30px);
