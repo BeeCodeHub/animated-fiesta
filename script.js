@@ -75,7 +75,7 @@ $(document).ready(function() {
 
     // Handle form submission
     document.querySelector('form').addEventListener('submit', function (e) {
-        e.preventDefault();
+        e.preventDefault(); // Prevent the default form submission
 
         var form = this;
         var formData = new FormData(form);
@@ -83,16 +83,30 @@ $(document).ready(function() {
         fetch(form.action, {
             method: form.method,
             body: formData,
+            headers: {
+                'Accept': 'application/json' // Ensure we expect JSON response
+            },
         })
-        .then(response => response.text())
-        .then(data => {
-            alert(data); // Show the response message in an alert box
-            form.reset(); // Reset the form after successful submission
+        .then(response => {
+            if (response.ok) {
+                alert("Thank you for your message! We will get back to you shortly.");
+                form.reset(); // Reset the form after successful submission
+            } else {
+                return response.json().then(data => {
+                    if (Object.hasOwn(data, 'errors')) {
+                        alert(data["errors"].map(error => error["message"]).join(", "));
+                    } else {
+                        alert("Oops! There was a problem submitting your form.");
+                    }
+                });
+            }
         })
         .catch(error => {
             console.error('Error:', error);
+            alert("Oops! There was a problem submitting your form.");
         });
     });
+
 
     // Handle URL parameters for error messages
     const urlParams = new URLSearchParams(window.location.search);
