@@ -120,4 +120,27 @@ $(document).ready(function() {
         errorMessage.textContent = "Invalid input. Please check your form and try again.";
         errorMessage.style.display = 'block';
     }
+
+    // Function to show papers based on selected year
+    function showPapers(year) {
+        // Hide all year sections
+        var sections = document.querySelectorAll('.year-section');
+        sections.forEach(function(section) {
+            section.classList.remove('active');
+        });
+
+        // Show the selected year's section
+        if (year) {
+            var sectionToShow = document.getElementById('papers' + year);
+            if (sectionToShow) {
+                sectionToShow.classList.add('active');
+            }
+        }
+    }
+
+    // Handle dropdown change event
+    $('#year-select').change(function() {
+        var selectedYear = $(this).val();
+        showPapers(selectedYear);
+    });
 });

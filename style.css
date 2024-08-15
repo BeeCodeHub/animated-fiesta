@@ -372,12 +372,16 @@ section .title::after {
 }
 
 .collaborations .carousel .card {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column;
+    align-items: center; /* Center align items horizontally */
     text-align: center;
     overflow: hidden;
     transition: all 0.3s ease;
     background: none; /* Removes background */
     padding: 0; /* Removes padding */
     border: none; /* Removes border */
+    width: 200px; /* Adjust width to keep consistency */
 }
 
 .collaborations .carousel .card:hover {
@@ -391,8 +395,8 @@ section .title::after {
 }
 
 .collaborations .carousel .card img {
-    height: 150px;
-    width: 150px;
+    height: 120px;
+    width: 120px;
     object-fit: cover;
     border-radius: 50%;
     border: 5px solid crimson;
