@@ -288,26 +288,23 @@ section .title::after {
 }
 
 
-.papers a {
-    color: crimson;
-    font-style: italic;
-}
-
 .papers .papers-content {
     display: flex;
     flex-wrap: wrap;
     gap: 20px; /* Add gap between columns and rows */
 }
 
-.papers .papers-content ul {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    width: 100%;
+/* Year section styling */
+.year-section {
+    display: none; /* Hide by default */
 }
 
+/* Showing the year section when active */
+.year-section.active {
+    display: block; /* Show the section when it's active */
+}
+
+/* Card styles */
 .papers .papers-content li.card {
     width: calc(33.333% - 20px); /* Adjust width to account for gap */
     background: #222;
@@ -334,17 +331,6 @@ section .title::after {
     color: crimson;
 }
 
-@media (max-width: 991px) {
-    .papers .papers-content li.card {
-        width: calc(50% - 20px); /* Adjust for 2 columns on smaller screens */
-    }
-}
-
-@media (max-width: 690px) {
-    .papers .papers-content li.card {
-        width: 100%; /* Adjust for single column on small screens */
-    }
-}
 
 /* Collaborations Section Styles */
 .collaborations {

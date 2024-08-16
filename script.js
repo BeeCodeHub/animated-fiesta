@@ -121,7 +121,7 @@ $(document).ready(function() {
         errorMessage.style.display = 'block';
     }
 
-    // Function to show papers based on selected year
+    // Function to show papers based on the selected year
     function showPapers(year) {
         // Hide all year sections
         var sections = document.querySelectorAll('.year-section');
@@ -139,8 +139,11 @@ $(document).ready(function() {
     }
 
     // Handle dropdown change event
-    $('#year-select').change(function() {
-        var selectedYear = $(this).val();
+    document.getElementById('yearDropdown').addEventListener('change', function() {
+        var selectedYear = this.value;
         showPapers(selectedYear);
     });
+
+    // Initial call to hide all sections on page load
+    showPapers('');
 });
