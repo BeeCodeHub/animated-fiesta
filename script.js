@@ -36,19 +36,27 @@ $(document).ready(function() {
     });
 
     // typing text animation script for two elements
-    var typed = new Typed(".typing", {
-        strings: ["Professor"],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true
-    });
+    if ($('.typing').length > 0) {
+        var typed = new Typed(".typing", {
+            strings: ["Professor"],
+            typeSpeed: 100,
+            backSpeed: 60,
+            loop: true
+        });
+    } else {
+        console.log("Element with class 'typing' not found!");
+    }
 
-    var typed2 = new Typed(".typing-2", {
-        strings: ["Professor"],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true
-    });
+    if ($('.typing-2').length > 0) {
+        var typed2 = new Typed(".typing-2", {
+            strings: ["Professor"],
+            typeSpeed: 100,
+            backSpeed: 60,
+            loop: true
+        });
+    } else {
+        console.log("Element with class 'typing-2' not found!");
+    }
 
     // Get the current page URL
     const currentPageUrl = window.location.href;
@@ -123,6 +131,7 @@ $(document).ready(function() {
 
     // Function to show papers based on the selected year
     function showPapers(year) {
+    console.log("showPapers called with year:", year); // Debugging line
         // Hide all year sections
         var sections = document.querySelectorAll('.year-section');
         sections.forEach(function(section) {
@@ -133,7 +142,10 @@ $(document).ready(function() {
         if (year) {
             var sectionToShow = document.getElementById('papers' + year);
             if (sectionToShow) {
+                console.log("Found section for year:", year); // Debugging line
                 sectionToShow.classList.add('active');
+            } else {
+            console.log("no section found for the year", year)
             }
         }
     }
@@ -142,6 +154,11 @@ $(document).ready(function() {
     document.getElementById('yearDropdown').addEventListener('change', function() {
         var selectedYear = this.value;
         showPapers(selectedYear);
+    });
+
+    // Initial call to hide all sections on page load
+    document.addEventListener("DOMContentLoaded", function() {
+        showPapers('2024');  // No year selected by default, hides all sections
     });
 
     // Initial call to hide all sections on page load
