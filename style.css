@@ -197,7 +197,7 @@ body {
 }
 
 .home-description {
-    flex: 1; /* Allow the description to take remaining space */
+    flex: 2; /* Allow the description to take remaining space */
     max-width: 50%; /* Limit max width if necessary */
     text-align: left;
     margin: 0; /* Remove any margin */
@@ -213,7 +213,7 @@ body {
 }
 
 .home .home-image img {
-    width: 500px;
+    width: 400px;
     height: auto; /* Maintain aspect ratio */
     filter: grayscale(120%) brightness(120%); /* Adjust grayscale and brightness */
     margin-top: 100px; /* Adjust margin to move the image down */
@@ -246,25 +246,38 @@ a.download-cv {
     text-align: center;
 }
 
-.about .column {
-    width: 100%;
-    margin: 0;
+.about .text-and-stats {
+    display: flex; /* Aligns text and stats side by side */
+    justify-content: space-between; /* Ensures space between text and stats */
+    align-items: flex-start; /* Aligns items to the top */
+    margin-bottom: 50px; /* Space between text/stats and awards/features */
+}
+
+.about .column.left {
+    flex: 3; /* Left column takes more space */
+    max-width: 1000px; /* Restrict maximum width */
+    text-align: left; /* Align text to the left */
 }
 
 .about .column.right {
-    margin-top: 20px;
+    flex: -40px; /* Right column (stats) takes less space */
+    margin-top: -20px; /* Remove any top margin if present */
+    padding-top: 0; /* Remove any top padding if present */
 }
 
 .about .text {
     font-size: 25px;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin: 0; /* Remove margin to prevent misalignment */
+    text-align: left; /* Ensure text is left-aligned */
+    line-height: 1.6; /* Improve readability by adjusting line height */
 }
 
 /* Apply max-width only to paragraphs in the left column */
 .column.left p {
-    max-width: 700px; /* Restricts the maximum width of paragraphs */
-    margin: 0 auto 20px; /* Centers the text and adds bottom margin */
+    max-width: 100%; /* Ensure paragraphs use available width */
+    margin: 0; /* Remove margins */
+    padding: 0; /* Remove padding */
 }
 
 .column.left p + p {
@@ -273,20 +286,65 @@ a.download-cv {
 
 .about .stats {
     display: flex;
-    flex-direction: row;
-    gap: 20px;
-    margin-top: 20px;
-    justify-content: center;
+    flex-direction: column; /* Stack stats vertically */
+    gap: 5px; /* Space between stats items */
 }
 
 .about .stat-item {
-    font-size: 25px;
+    font-size: 15px;
     font-weight: 500;
     padding: 20px 30px;
     border-radius: 8px;
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+/* Updated Styles for Awards and Features Content */
+.about .carousel {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers the cards horizontally */
+    margin-top: 50px; /* Margin to separate from stats */
+}
+
+.about .carousel .card {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column;
+    align-items: center; /* Center align items horizontally */
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: none; /* Removes background */
+    padding: 0; /* Removes padding */
+    border: none; /* Removes border */
+    width: 150px; /* Adjust width to keep consistency */
+    margin: 0 10px;
+}
+
+.about .carousel .text {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
+    color: rgba(0, 0, 0, 0.6); /* Grey text color */
+}
+
+.about .carousel .card img {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #a569bd;
+    transition: all 0.3s ease;
+    opacity: 0.6; /* Reduce opacity of the images */
+    filter: grayscale(100%); /* Apply grayscale to the images */
+}
+
+.about .carousel .card:hover img {
+    border-color: #fff;
+    opacity: 1; /* Restore opacity on hover */
+    filter: none; /* Remove grayscale on hover */
 }
 
 .papers .papers-content {
@@ -368,116 +426,63 @@ ul.paper-list .paper-details p {
     margin-bottom: 40px;
 }
 
-.collaborations .carousel {
+.collaborations .container {
     display: flex;
-    gap: 20px;
     flex-wrap: wrap;
-    justify-content: center; /* Centers the cards horizontally */
+    gap: 20px;
+    justify-content: center;
+    padding: 0 15px;
 }
 
-.collaborations .carousel .card {
-    display: flex; /* Use flexbox for alignment */
+.collaborations .card {
+    display: flex;
     flex-direction: column;
-    align-items: center; /* Center align items horizontally */
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    overflow: hidden;
+    width: 230px; /* Fixed width for square container */
+    height: 230px; /* Fixed height for square container */
+    padding: 15px;
+    margin: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    background: none; /* Removes background */
-    padding: 0; /* Removes padding */
-    border: none; /* Removes border */
-    width: 200px; /* Adjust width to keep consistency */
 }
 
-.collaborations .carousel .card:hover {
-    background: none; /* Ensures no background on hover */
+.collaborations .card:hover {
+    background-color: #f0f0f0; /* Light grey or any other subtle color for hover */
 }
 
 .collaborations .text {
-    font-size: 25px;
-    font-weight: 500;
-    margin: 10px 0 7px 0;
-}
-
-.collaborations .carousel .card img {
-    height: 120px;
-    width: 120px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 5px solid #a569bd;
-    transition: all 0.3s ease;
-}
-
-.collaborations .carousel .card:hover img {
-    border-color: #fff;
-}
-
-/* awards-features Section Styles */
-.awards-features {
-    display: block;
-    padding: 60px 0;
-    position: relative;
-    background: rgba(128, 128, 128, 0.3); /* Grey overlay with 30% opacity */
-    filter: grayscale(100%); /* Apply grayscale to the entire section */
-}
-
-.awards-features .max-width {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.awards-features .title {
-    text-align: center;
-    font-size: 36px;
+    font-size: 16px;
     font-weight: 600;
-    margin-bottom: 40px;
-    color: rgba(0, 0, 0, 0.6); /* Grey text color */
+    color: #333;
+    margin: 5px 0;
 }
 
-.awards-features .carousel {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center; /* Centers the cards horizontally */
-}
-
-.awards-features .carousel .card {
-    display: flex; /* Use flexbox for alignment */
-    flex-direction: column;
-    align-items: center; /* Center align items horizontally */
-    text-align: center;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    background: none; /* Removes background */
-    padding: 0; /* Removes padding */
-    border: none; /* Removes border */
-    width: 200px; /* Adjust width to keep consistency */
-}
-
-.awards-features .carousel .card:hover {
-    background: none; /* Ensures no background on hover */
-}
-
-.awards-features .text {
-    font-size: 25px;
-    font-weight: 500;
-    margin: 10px 0 7px 0;
-    color: rgba(0, 0, 0, 0.6); /* Grey text color */
-}
-
-.awards-features .carousel .card img {
-    height: 120px;
-    width: 120px;
+.collaborations .card img {
+    width: 80px;
+    height: 80px;
     object-fit: cover;
     border-radius: 50%;
-    border: 5px solid #a569bd;
-    transition: all 0.3s ease;
-    opacity: 0.6; /* Reduce opacity of the images */
+    margin-bottom: 10px;
+    border: 2px solid transparent;
+    filter: grayscale(100%);
+    transition: border-color 0.3s ease;
 }
 
-.awards-features .carousel .card:hover img {
+.collaborations .card:hover img {
     border-color: #fff;
-    opacity: 1; /* Restore opacity on hover */
 }
+
+.collaborations .card p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
 .contact .contact-content .column{
     width: calc(50% - 30px);
 }

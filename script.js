@@ -69,17 +69,17 @@ $(document).ready(function() {
     }
 
     // Initialize Owl Carousel
-    $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 20,
-        nav: true,
-        items: 3, // Adjust the number of items as needed
-        autoplay: true,
-        autoplayTimeout: 2000, // Adjust the autoplay speed if needed
-        autoplayHoverPause: true
-    }).on('initialized.owl.carousel', function(event) {
-        console.log('Owl Carousel initialized');
-    });
+   $('.owl-carousel').owlCarousel({
+       loop: true,
+       margin: 20,
+       nav: true,
+       items: 4, // Adjust the number of items as needed
+       autoplay: true, // Disable auto-slide
+       autoplayTimeout: 2000,
+       autoplayHoverPause: true
+   }).on('initialized.owl.carousel', function(event) {
+       console.log('Owl Carousel initialized');
+   });
 
     // Handle form submission
     document.querySelector('form').addEventListener('submit', function (e) {
