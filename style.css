@@ -287,7 +287,7 @@ a.download-cv {
 .about .stats {
     display: flex;
     flex-direction: column; /* Stack stats vertically */
-    gap: 5px; /* Space between stats items */
+    gap: 1px; /* Space between stats items */
 }
 
 .about .stat-item {
@@ -297,7 +297,7 @@ a.download-cv {
     border-radius: 8px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
 }
 
 /* Updated Styles for Awards and Features Content */
@@ -324,7 +324,7 @@ a.download-cv {
 }
 
 .about .carousel .text {
-    font-size: 18px;
+    font-size: 10px;
     font-weight: 500;
     margin: 10px 0 7px 0;
     color: rgba(0, 0, 0, 0.6); /* Grey text color */

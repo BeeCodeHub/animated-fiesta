@@ -71,7 +71,7 @@ $(document).ready(function() {
     // Initialize Owl Carousel
    $('.owl-carousel').owlCarousel({
        loop: true,
-       margin: 20,
+       margin: 0,
        nav: true,
        items: 4, // Adjust the number of items as needed
        autoplay: true, // Disable auto-slide
