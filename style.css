@@ -437,18 +437,25 @@ ul.paper-list .paper-details p {
 .collaborations .card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
-    width: 230px; /* Fixed width for square container */
-    height: 230px; /* Fixed height for square container */
-    padding: 15px;
-    margin: 10px;
+    width: 245px; /* Fixed width for square container */
+    height: 450px; /* Fixed height for square container */
+    padding: 20px;
+    margin: 15px;
     border: 2px solid #ccc;
     border-radius: 10px;
     background-color: #f9f9f9;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+}
+
+.collaborations .card .text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px; /* Add some space below the name */
 }
 
 .collaborations .card:hover {
@@ -460,21 +467,6 @@ ul.paper-list .paper-details p {
     font-weight: 600;
     color: #333;
     margin: 5px 0;
-}
-
-.collaborations .card img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    border: 2px solid transparent;
-    filter: grayscale(100%);
-    transition: border-color 0.3s ease;
-}
-
-.collaborations .card:hover img {
-    border-color: #fff;
 }
 
 .collaborations .card p {
