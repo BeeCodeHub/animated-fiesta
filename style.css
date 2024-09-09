@@ -172,21 +172,6 @@ section .title::after {
     filter: brightness(90%);
 }
 
-body {
-    background-color: transparent;
-    background-image: url('images/fibonaccinumbers.jpg'); /* Ensure this path is correct */
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.image-container img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
 /* Home Section Styling */
 .home-content-container {
     display: flex;
@@ -204,19 +189,25 @@ body {
     padding: 0;
 }
 
+.home-description p {
+    margin-bottom: 10px; /* Adjust this value to control the space below the paragraph */
+}
+
 .home .home-image {
-    flex: 1; /* Allow the image to take remaining space */
-    max-width: 50%; /* Limit max width if necessary */
+    flex: 1;
+    max-width: 50%;
     display: flex;
-    justify-content: flex-end; /* Align image to the right */
-    align-items: flex-end; /* Align items to the bottom of the container */
+    justify-content: flex-start; /* Move image to the left */
+    align-items: center; /* Center the image vertically */
 }
 
 .home .home-image img {
-    width: 400px;
-    height: auto; /* Maintain aspect ratio */
-    filter: grayscale(120%) brightness(120%); /* Adjust grayscale and brightness */
-    margin-top: 100px; /* Adjust margin to move the image down */
+    width: 400px; /* Increase the size of the image */
+    height: 400px; /* Set a fixed height to maintain a circular shape */
+    object-fit: cover; /* Ensure the image covers the circular area */
+    border-radius: 50%; /* Make the image circular */
+    filter: grayscale(120%) brightness(120%);
+    margin-top: 0; /* Remove the top margin to align better */
 }
 
 .home h1 {
@@ -234,9 +225,20 @@ body {
 }
 
 a.download-cv {
-    color: #a569bd;
+    display: inline-block; /* Ensures the link behaves like a button */
+    color: #fff; /* Text color inside the button */
+    background-color: #19747E; /* Background color for the button */
     font-weight: bold;
-    text-decoration: underline; /* if you want to remove the underline */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 20px; /* Add padding inside the button */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    margin-top: 40px; /* Adds space above the button if needed */
+}
+
+a.download-cv:hover {
+    background-color: #8e44ad; /* Darker shade of the background color on hover */
+    color: #fff
 }
 
 /* About section styling */
@@ -266,7 +268,7 @@ a.download-cv {
 }
 
 .about .text {
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 600;
     margin: 0; /* Remove margin to prevent misalignment */
     text-align: left; /* Ensure text is left-aligned */
@@ -283,44 +285,70 @@ a.download-cv {
 .column.left p + p {
     margin-top: 20px;
 }
-
-.about .stats {
+.about .stats-container {
     display: flex;
-    flex-direction: column; /* Stack stats vertically */
-    gap: 1px; /* Space between stats items */
+    justify-content: center; /* Centers the cards horizontally */
+    margin-top: 20px; /* Space from the previous section */
+}
+
+.about .read-more {
+    display: inline-block;
+    margin-top: 10px; /* Space above the link */
+    font-size: 16px; /* Font size for the link */
+    font-weight: 600; /* Bold font */
+    color: #a569bd; /* Link color */
+    text-decoration: none; /* Removes underline */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.about .read-more:hover {
+    color: #6a329f; /* Darker color on hover */
+}
+
+.about .stats-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 300px; /* Adjust width as needed */
+    height: 400px; /* Adjust height as needed */
+    padding: 18px; /* Adjust padding for spacing */
+    margin: 0 16px; /* Adjust margin for space between cards */
+    border: 2px solid #ccc; /* Border color */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #f9f9f9; /* Background color */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .about .stat-item {
-    font-size: 15px;
-    font-weight: 500;
-    padding: 20px 30px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    font-size: 14px; /* Adjust font size */
+    font-weight: 600; /* Bold text */
+    color: #333; /* Text color */
+    margin: 5px 0; /* Space between items */
+}
+
+/* Optional hover effect */
+.about .stats-card:hover {
+    background-color: #e0e0e0; /* Light grey background on hover */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+.about .stat-item span.stat-number {
+    display: block;
+    font-size: 16px; /* Larger font size for numbers */
+    color: #a569bd; /* Color for numbers */
 }
 
 /* Updated Styles for Awards and Features Content */
 .about .carousel {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Change to nowrap to prevent wrapping */
     justify-content: center; /* Centers the cards horizontally */
     margin-top: 50px; /* Margin to separate from stats */
-}
-
-.about .carousel .card {
-    display: flex; /* Use flexbox for alignment */
-    flex-direction: column;
-    align-items: center; /* Center align items horizontally */
-    text-align: center;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    background: none; /* Removes background */
-    padding: 0; /* Removes padding */
-    border: none; /* Removes border */
-    width: 150px; /* Adjust width to keep consistency */
-    margin: 0 10px;
+    padding-top: 50px; /* Additional padding to ensure spacing */
+    overflow: hidden; /* Prevent overflow of content */
 }
 
 .about .carousel .text {
@@ -389,7 +417,7 @@ ul.paper-list .paper-item {
 }
 
 ul.paper-list .paper-item a {
-    color: #007bff;
+    color: #a569bd;
     text-decoration: none;
     font-weight: bold;
 }
@@ -441,7 +469,7 @@ ul.paper-list .paper-details p {
     align-items: center;
     text-align: center;
     width: 245px; /* Fixed width for square container */
-    height: 450px; /* Fixed height for square container */
+    height: 500px; /* Fixed height for square container */
     padding: 20px;
     margin: 15px;
     border: 2px solid #ccc;

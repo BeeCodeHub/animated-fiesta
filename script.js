@@ -68,15 +68,20 @@ $(document).ready(function() {
         logoElement.classList.add('fixed-logo');
     }
 
-    // Initialize Owl Carousel
+   // Initialize Owl Carousel for Awards and Features
    $("#awards-features-carousel").owlCarousel({
        loop: true,
-       margin: 0,
+       margin: 20, // Adds margin between items
        nav: true,
-       items: 4, // Adjust the number of items as needed
-       autoplay: true, // Disable auto-slide
-       autoplayTimeout: 2000,
-       autoplayHoverPause: true
+       items: 3, // Adjusts the number of items to show four at a time
+       autoplay: true, // Enable auto-slide
+       autoplayTimeout: 3000, // Adjust auto-slide timeout if needed
+       autoplayHoverPause: true, // Pause auto-slide on hover
+       responsive: {
+           0: { items: 1 }, // Show 1 item on small screens
+           600: { items: 2 }, // Show 2 items on medium screens
+           1000: { items: 3 } // Show 4 items on large screens
+       }
    }).on('initialized.owl.carousel', function(event) {
        console.log('Owl Carousel initialized');
    });
