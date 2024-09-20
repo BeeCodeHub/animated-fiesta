@@ -31,6 +31,7 @@ html {
 
 section {
     padding: 100px 0;
+    min-height: 100vh;
 }
 
 .max-width {
@@ -53,6 +54,8 @@ section {
 }
 
 section .title {
+    break-inside: avoid;
+    margin-top: 20px;
     position: relative;
     text-align: center;
     font-size: 40px;
@@ -89,7 +92,7 @@ section .title::after {
 .navbar {
     position: fixed;
     width: 100%;
-    z-index: 999;
+    z-index: 10;
     padding: 30px 0;
     font-family: 'Ubuntu', sans-serif;
     transition: all 0.3s ease;
@@ -114,6 +117,7 @@ section .title::after {
 
 .navbar .menu li {
     display: inline-block;
+    position: relative; /* Ensure submenu is positioned relative to this item */
 }
 
 .navbar .menu li a {
@@ -132,6 +136,43 @@ section .title::after {
 
 .navbar.sticky .menu li a:hover {
     color: #a569bd;
+}
+
+/* Submenu styling */
+.submenu {
+    display: none; /* Hidden by default */
+    position: absolute; /* Positioned absolutely within the parent */
+    top: 100%; /* Position it just below the parent menu item */
+    left: 0; /* Align submenu to the left of the parent item */
+    background-color: #19747E; /* Background color for submenu */
+    padding: 10px 0; /* Padding for the submenu */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for submenu */
+    width: max-content; /* Adjust width to fit content */
+}
+
+/* Ensure dropdown takes full width */
+.submenu li select {
+    background-color: #19747E; /* Same background color as the parent menu */
+    color: #F5F5DC; /* Text color for the select dropdown */
+    font-size: 16px; /* Font size for select options */
+    border: none; /* Remove default border */
+    width: 130px; /* Set a specific width for the dropdown */
+    padding: 5px; /* Add padding inside the dropdown */
+}
+
+.papers {
+    margin-bottom: 70px; /* Increase the bottom margin */
+}
+
+/* Show submenu on hover */
+.papers-menu:hover .submenu {
+    display: block; /* Show submenu on hover */
+    z-index: 20; /* Ensure it appears above other content */
+}
+
+/* Add transition for smooth dropdown effect */
+.submenu, .submenu li {
+    transition: all 0.3s ease;
 }
 
 /* Menu button styling */
@@ -173,55 +214,86 @@ section .title::after {
 }
 
 /* Home Section Styling */
+.home {
+    position: relative; /* Establishes a positioning context for the logo */
+    padding-top: 80px; /* Creates space for the logo at the top */
+    background-image: url('images/BackgroundImage.jpg'); /* Add your image URL here */
+    background-position: -7.2cm -15.8cm; /* Moves the background image 5 cm to the right */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-size: 150%; /* Ensures the image scales properly */
+}
+
+.logo {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5em;
+    margin: 0;
+    color: #fff;
+    z-index: 10;
+    line-height: 1em; /* Add this line to reduce the space between lines */
+}
+
+.word1, .word2 {
+    display: block;
+}
+
+.word2 {
+    margin-top: 0; /* Reset margin */
+    line-height: 0.00001em; /* Control line spacing between the two words */
+}
+
+/* Home content styling */
 .home-content-container {
     display: flex;
-    align-items: center; /* Align items vertically */
-    justify-content: space-between; /* Space out items horizontally */
+    align-items: center;
+    justify-content: flex-start; /* Aligns the content to the left */
     gap: 20px; /* Adjust gap between the description and image */
     padding: 0;
 }
 
+/* Description and image styling remains unchanged */
 .home-description {
-    flex: 2; /* Allow the description to take remaining space */
-    max-width: 50%; /* Limit max width if necessary */
+    flex: 2;
+    max-width: 50%;
     text-align: left;
-    margin: 0; /* Remove any margin */
-    padding: 0;
+    margin: 0;
 }
 
 .home-description p {
-    margin-bottom: 10px; /* Adjust this value to control the space below the paragraph */
+    margin-bottom: 10px;
 }
 
 .home .home-image {
     flex: 1;
     max-width: 50%;
     display: flex;
-    justify-content: flex-start; /* Move image to the left */
-    align-items: center; /* Center the image vertically */
+    justify-content: flex-start;
+    align-items: flex-end;
 }
 
 .home .home-image img {
-    width: 400px; /* Increase the size of the image */
-    height: 400px; /* Set a fixed height to maintain a circular shape */
-    object-fit: cover; /* Ensure the image covers the circular area */
-    border-radius: 50%; /* Make the image circular */
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50%;
     filter: grayscale(120%) brightness(120%);
-    margin-top: 0; /* Remove the top margin to align better */
+    margin-top: 120px;
 }
 
 .home h1 {
     font-size: 2.5em;
-    margin: 0; /* Remove all margins to align with the paragraph */
-    text-align: left; /* Force text alignment to the left */
-    padding: 0; /* Ensure no padding is pushing the text */
-    width: 100%; /* Make sure it takes the full width of its container */
+    margin: 0;
+    text-align: left;
+    padding: 0;
+    width: 100%;
 }
 
 .home p {
     font-size: 1.2em;
     line-height: 1.6;
-    margin: 0; /* Ensure no extra margin is added */
+    margin: 0;
 }
 
 a.download-cv {
@@ -328,12 +400,6 @@ a.download-cv:hover {
     margin: 5px 0; /* Space between items */
 }
 
-/* Optional hover effect */
-.about .stats-card:hover {
-    background-color: #e0e0e0; /* Light grey background on hover */
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
-}
-
 .about .stat-item span.stat-number {
     display: block;
     font-size: 16px; /* Larger font size for numbers */
@@ -370,7 +436,7 @@ a.download-cv:hover {
 }
 
 .about .carousel .card:hover img {
-    border-color: #fff;
+    border-color: #a569bd;
     opacity: 1; /* Restore opacity on hover */
     filter: none; /* Remove grayscale on hover */
 }

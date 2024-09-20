@@ -1,182 +1,157 @@
 $(document).ready(function() {
     console.log("Document ready!");
 
-    $(window).scroll(function(){
-        // sticky navbar on scroll script
-        if(this.scrollY > 20){
-            $('.navbar').addClass("sticky");
-        } else {
-            $('.navbar').removeClass("sticky");
-        }
+    $(window).scroll(function() {
+        $('.navbar').toggleClass("sticky", this.scrollY > 20);
+        $('.scroll-up-btn').toggleClass("show", this.scrollY > 500);
+    });
 
-        // scroll-up button show/hide script
-        if(this.scrollY > 500){
-            $('.scroll-up-btn').addClass("show");
+    $('.scroll-up-btn, .navbar .menu li a').on('click', function() {
+        if ($(this).hasClass('scroll-up-btn')) {
+            $('html').animate({ scrollTop: 0 });
+            $('html').css("scrollBehavior", "auto");
         } else {
-            $('.scroll-up-btn').removeClass("show");
+            $('html').css("scrollBehavior", "smooth");
         }
     });
 
-    // slide-up script
-    $('.scroll-up-btn').click(function(){
-        $('html').animate({scrollTop: 0});
-        // removing smooth scroll on slide-up button click
-        $('html').css("scrollBehavior", "auto");
-    });
-
-    // applying smooth scroll on menu items click
-    $('.navbar .menu li a').click(function(){
-        $('html').css("scrollBehavior", "smooth");
-    });
-
-    // toggle menu/navbar script
-    $('.menu-btn').click(function(){
+    $('.menu-btn').click(function() {
         $('.navbar .menu').toggleClass("active");
         $('.menu-btn i').toggleClass("active");
     });
 
-    // typing text animation script for two elements
     if ($('.typing').length > 0) {
-        var typed = new Typed(".typing", {
-            strings: ["Professor"],
-            typeSpeed: 100,
-            backSpeed: 60,
-            loop: true
-        });
-    } else {
-        console.log("Element with class 'typing' not found!");
+        new Typed(".typing", { strings: ["Professor"], typeSpeed: 100, backSpeed: 60, loop: true });
     }
 
     if ($('.typing-2').length > 0) {
-        var typed2 = new Typed(".typing-2", {
-            strings: ["Professor"],
-            typeSpeed: 100,
-            backSpeed: 60,
-            loop: true
-        });
-    } else {
-        console.log("Element with class 'typing-2' not found!");
+        new Typed(".typing-2", { strings: ["Professor"], typeSpeed: 100, backSpeed: 60, loop: true });
     }
 
-    // Get the current page URL
-    const currentPageUrl = window.location.href;
-
-    // Check if the current page is the home page
-    if (currentPageUrl.endsWith("/index.html") || currentPageUrl.endsWith("/") || currentPageUrl.endsWith("/home")) {
-        // Add a class to the logo element to apply fixed positioning
-        const logoElement = document.getElementById('logo');
-        logoElement.classList.add('fixed-logo');
+    if (window.location.href.match(/\/(index.html|home)?$/)) {
+        document.getElementById('logo').classList.add('fixed-logo');
     }
 
-   // Initialize Owl Carousel for Awards and Features
-   $("#awards-features-carousel").owlCarousel({
-       loop: true,
-       margin: 20, // Adds margin between items
-       nav: true,
-       items: 3, // Adjusts the number of items to show four at a time
-       autoplay: true, // Enable auto-slide
-       autoplayTimeout: 3000, // Adjust auto-slide timeout if needed
-       autoplayHoverPause: true, // Pause auto-slide on hover
-       responsive: {
-           0: { items: 1 }, // Show 1 item on small screens
-           600: { items: 2 }, // Show 2 items on medium screens
-           1000: { items: 3 } // Show 4 items on large screens
-       }
-   }).on('initialized.owl.carousel', function(event) {
-       console.log('Owl Carousel initialized');
-   });
+    $("#awards-features-carousel").owlCarousel({
+        loop: true,
+        margin: 20,
+        nav: true,
+        items: 3,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
+        responsive: {
+            0: { items: 1 },
+            600: { items: 2 },
+            1000: { items: 3 }
+        }
+    }).on('initialized.owl.carousel', function(event) {
+        console.log('Awards Features Carousel initialized');
+    });
 
-   $("#collaborations-carousel").owlCarousel({
-          loop: true,
-          margin: 0,
-          nav: true,
-          items: 4, // Adjust the number of items as needed
-          autoplay: false, // Disable auto-slide
-          autoplayTimeout: 2000,
-   }).on('initialized.owl.carousel', function(event) {
-          console.log('Owl Carousel initialized');
-   });
+    $("#collaborations-carousel").owlCarousel({
+        loop: true,
+        margin: 0,
+        nav: true,
+        items: 4,
+        autoplay: false,
+        autoplayTimeout: 2000,
+        responsive: {
+            0: { items: 1 },
+            600: { items: 2 },
+            1000: { items: 4 }
+        }
+    }).on('initialized.owl.carousel', function(event) {
+        console.log('Collaborations Carousel initialized');
+    });
 
-    // Handle form submission
-    document.querySelector('form').addEventListener('submit', function (e) {
-        e.preventDefault(); // Prevent the default form submission
+    function fibonacci(n) {
+        let fib = [0, 1];
 
-        var form = this;
-        var formData = new FormData(form);
+        for (let i = 2; i <= n; i++) {
+            fib[i] = fib[i - 1] + fib[i - 2];
+        }
+        return fib[n];
+    }
 
-        fetch(form.action, {
-            method: form.method,
+    function generateFibonacciQuestion() {
+        const randomN = Math.floor(Math.random() * 20) + 1;
+        const answer = fibonacci(randomN);
+
+        if (document.getElementById('human-question-label')) {
+            document.getElementById('human-question-label').textContent = `What is the ${randomN}th Fibonacci number? (Anti-spam)`;
+        } else {
+            console.error("Element with ID 'human-question-label' not found.");
+        }
+
+        return answer;
+    }
+
+    function setSubmissionTime() {
+        const now = new Date();
+        document.getElementById("submissionTimeUTC").value = now.toISOString();
+        document.getElementById("submissionTimeLocal").value = now.toLocaleString();
+    }
+
+    let correctAnswer = generateFibonacciQuestion();
+
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        document.getElementById('submissionTimeUTC').value = new Date().toISOString();
+
+        const userAnswer = document.getElementById('human_verification').value;
+
+        if (parseInt(userAnswer) !== correctAnswer) {
+            alert("Incorrect answer to the math question. Please try again.");
+            correctAnswer = generateFibonacciQuestion(); // Regenerate question on failure
+            return;
+        }
+
+        var formData = new FormData(this);
+        fetch(this.action, {
+            method: this.method,
             body: formData,
-            headers: {
-                'Accept': 'application/json' // Ensure we expect JSON response
-            },
-        })
-        .then(response => {
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            alert(response.ok ? "Thank you for your message! We will get back to you shortly." : "Oops! There was a problem submitting your form.");
             if (response.ok) {
-                alert("Thank you for your message! We will get back to you shortly.");
-                form.reset(); // Reset the form after successful submission
-            } else {
-                return response.json().then(data => {
-                    if (Object.hasOwn(data, 'errors')) {
-                        alert(data["errors"].map(error => error["message"]).join(", "));
-                    } else {
-                        alert("Oops! There was a problem submitting your form.");
-                    }
-                });
+                this.reset();
+                correctAnswer = generateFibonacciQuestion(); // Regenerate question after reset
             }
-        })
-        .catch(error => {
+        }).catch(error => {
             console.error('Error:', error);
             alert("Oops! There was a problem submitting your form.");
         });
     });
 
-
-    // Handle URL parameters for error messages
     const urlParams = new URLSearchParams(window.location.search);
-    const status = urlParams.get('status');
     const errorMessage = document.getElementById('error-message');
-
-    if (status === 'error') {
-        errorMessage.textContent = "Failed to send email. Please try again later.";
-        errorMessage.style.display = 'block';
-    } else if (status === 'invalid') {
-        errorMessage.textContent = "Invalid input. Please check your form and try again.";
-        errorMessage.style.display = 'block';
+    if (errorMessage) {
+        const status = urlParams.get('status');
+        errorMessage.textContent = status === 'error' ? "Failed to send email. Please try again later." : status === 'invalid' ? "Invalid input. Please check your form and try again." : "";
+        errorMessage.style.display = status ? 'block' : 'none';
     }
 
-    // Function to show papers based on the selected year
-    function showPapers(year) {
-    console.log("showPapers called with year:", year); // Debugging line
-        // Hide all year sections
-        var sections = document.querySelectorAll('.year-section');
-        sections.forEach(function(section) {
-            section.classList.remove('active');
-        });
+    function handleYearDropdownChange(event) {
+        var selectedYear = event.target.value;
+        showPapers(selectedYear);
 
-        // Show the selected year's section
-        if (year) {
-            var sectionToShow = document.getElementById('papers' + year);
-            if (sectionToShow) {
-                console.log("Found section for year:", year); // Debugging line
-                sectionToShow.classList.add('active');
-            } else {
-            console.log("no section found for the year", year)
+        if (selectedYear) {
+            const papersSection = document.getElementById('papers' + selectedYear);
+            if (papersSection) {
+                $('html, body').animate({ scrollTop: $(papersSection).offset().top - 150 }, 1000);
             }
         }
     }
 
-    // Handle dropdown change event
-    document.getElementById('yearDropdown').addEventListener('change', function() {
-        var selectedYear = this.value;
-        showPapers(selectedYear);
-    });
+    $('#navbarYearDropdown, #papersYearDropdown, #yearDropdown').change(handleYearDropdownChange);
 
-    // Initial call to hide all sections on page load
-    document.addEventListener("DOMContentLoaded", function() {
-        showPapers('2024');  // No year selected by default, hides all sections
-    });
+    function showPapers(year) {
+        console.log("showPapers called with year:", year);
+        $('.year-section').removeClass('active');
+        if (year) $('#papers' + year).addClass('active');
+    }
 
-    // Initial call to hide all sections on page load
     showPapers('');
 });
