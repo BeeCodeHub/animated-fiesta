@@ -218,7 +218,7 @@ section .title::after {
     position: relative; /* Establishes a positioning context for the logo */
     padding-top: 80px; /* Creates space for the logo at the top */
     background-image: url('images/BackgroundImage.jpg'); /* Add your image URL here */
-    background-position: -7.2cm -15.8cm; /* Moves the background image 5 cm to the right */
+    background-position: -7.3cm -15.9cm; /* Moves the background image 5 cm to the right */
     background-repeat: no-repeat; /* Prevents the image from repeating */
     background-size: 150%; /* Ensures the image scales properly */
 }
@@ -567,6 +567,29 @@ ul.paper-list .paper-details p {
     font-size: 14px;
     color: #666;
     margin: 0;
+}
+
+.contact {
+   background-image: url('images/IMG_3006.jpg');
+   background-size: cover;
+   background-position: center;
+   background-attachment: fixed;
+}
+
+.contact::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.5); /* Adjust the 0.5 for the level of grey */
+   z-index: 1;
+}
+
+.contact-content {
+   position: relative;
+   z-index: 2; /* Ensures content is on top of the grey overlay */
 }
 
 .contact .contact-content .column{
