@@ -1,19 +1,18 @@
 $(document).ready(function() {
     console.log("Document ready!");
 
-    $(window).scroll(function() {
-        $('.navbar').toggleClass("sticky", this.scrollY > 20);
-        $('.scroll-up-btn').toggleClass("show", this.scrollY > 500);
-    });
+   $(document).ready(function() {
+       $(window).scroll(function() {
+           $('.navbar').toggleClass("sticky", this.scrollY > 20);
 
-    $('.scroll-up-btn, .navbar .menu li a').on('click', function() {
-        if ($(this).hasClass('scroll-up-btn')) {
-            $('html').animate({ scrollTop: 0 });
-            $('html').css("scrollBehavior", "auto");
-        } else {
-            $('html').css("scrollBehavior", "smooth");
-        }
-    });
+           const word2 = $('.word2');
+           if (this.scrollY > 0) {
+               word2.addClass('hidden'); // Hide on scroll
+           } else {
+               word2.removeClass('hidden'); // Show on top of the page
+           }
+       });
+   });
 
     $('.menu-btn').click(function() {
         $('.navbar .menu').toggleClass("active");
@@ -36,14 +35,14 @@ $(document).ready(function() {
         loop: true,
         margin: 20,
         nav: true,
-        items: 3,
+        items: 4,
         autoplay: true,
         autoplayTimeout: 3000,
         autoplayHoverPause: true,
         responsive: {
             0: { items: 1 },
             600: { items: 2 },
-            1000: { items: 3 }
+            1000: { items: 4 }
         }
     }).on('initialized.owl.carousel', function(event) {
         console.log('Awards Features Carousel initialized');

@@ -67,8 +67,8 @@
     <div class="max-width">
         <!-- Text-based Logo -->
         <div class="logo">
-            <span class="word1">Florian</span><br>
-            <span class="word2">Luca</span>
+            <span class="word1">Luca</span><br>
+            <span class="word2">Florian</span>
         </div>
         <div class="home-content-container">
             <div class="home-description">
@@ -84,7 +84,6 @@
     </div>
 </section>
 
-<!-- About section start -->
 <section class="about" id="about">
     <div class="max-width">
         <h2 class="title">About me</h2>
@@ -96,66 +95,24 @@
                         I completed my undergraduate studies in Mathematics at Alexandru Ioan Cuza University in Iași in 1992, and then went on to earn a Ph.D. in Mathematics from the University of Alaska Fairbanks in 1996.
                     </p>
                     <a href="https://en.wikipedia.org/wiki/Florian_Luca" class="read-more" target="_blank">Read more</a>
-
-                    <!-- Awards and Features content -->
-                    <div class="carousel owl-carousel" id="awards-features-carousel">
-                        <div class="card">
-                            <a href="https://www.insmi.cnrs.fr/en/cnrsinfo/mathematician-florian-luca-member-ganda-irn-joins-cnrs-fellow-ambassador-programme" target="_blank">
-                                <img src="images/cnrs.png" alt="The GANDA IRN">
-                            </a>
-                            <div class="text">2024 The GANDA IRN</div>
-                        </div>
-                        <div class="card">
-                            <a href="https://www.nrf.ac.za/about-us/nrf-awards/2022-2/a-rated-researchers-2022/professor-florian-luca/" target="_blank">
-                                <img src="images/NRF.jpg" alt="NRF A-Rated Researcher">
-                            </a>
-                            <div class="text">NRF A-Rated Researcher</div>
-                        </div>
-                        <div class="card">
-                            <a href="https://www.assaf.org.za/2023/11/13/top-scholars-in-south-africa-honoured-6/" target="_blank">
-                                <img src="images/Assaf.png" alt="ASSAF Award">
-                            </a>
-                            <div class="text">2023 ASSAF Award winner</div>
-                        </div>
-                        <div class="card">
-                            <a href="https://www.stias.ac.za/fellows/florian-luca/" target="_blank">
-                                <img src="images/stias-logo.jpg" alt="2023 STIAS Fellow">
-                            </a>
-                            <div class="text">2023 STIAS Fellow</div>
-                        </div>
-                        <div class="card">
-                            <a href="https://www.gf.org/fellows/florian-luca/" target="_blank">
-                                <img src="images/Guggen.png" alt="2023 STIAS Fellow">
-                            </a>
-                            <div class="text">2005 Guggenheim fellow</div>
-                        </div>
-                        <div class="card">
-                            <a href="https://www.sams.ac.za/award-winners/" target="_blank">
-                                <img src="images/Sams.png" alt="2017 SAMS Award">
-                            </a>
-                            <div class="text">2017 SAMS Award winner</div>
-                        </div>
-                    </div>
                 </div>
-                <div class="column right">
-                    <div class="stats-container">
-                        <div class="stats-card">
-                            <div class="stat-item">
-                                📚 <span class="stat-number">8000+</span> Citations
-                            </div>
-                            <div class="stat-item">
-                                📝 <span class="stat-number">500+</span> Publications
-                            </div>
-                            <div class="stat-item">
-                                ✍️ <span class="stat-number">350+</span> Co-Authors
-                            </div>
-                            <div class="stat-item">
-                                🏋️ <span class="stat-number">25+</span> Years of Experience
-                            </div>
-                            <div class="stat-item">
-                                🤝 <span class="stat-number">10+</span> Collaborations
-                            </div>
-                        </div>
+            </div>
+            <div class="stats-container">
+                <div class="stats-card">
+                    <div class="stat-item">
+                        📚 <span class="stat-number">8000+</span> Citations
+                    </div>
+                    <div class="stat-item">
+                        📝 <span class="stat-number">500+</span> Publications
+                    </div>
+                    <div class="stat-item">
+                        ✍️ <span class="stat-number">350+</span> Co-Authors
+                    </div>
+                    <div class="stat-item">
+                        🏋️ <span class="stat-number">25+</span> Years of Experience
+                    </div>
+                    <div class="stat-item">
+                        🤝 <span class="stat-number">10+</span> Collaborations
                     </div>
                 </div>
             </div>
@@ -168,23 +125,24 @@
 <section class="papers" id="papers">
     <div class="max-width">
         <h2 class="title">Papers</h2>
-        <h2>Select Year to View Papers</h2>
-        <select id="papersYearDropdown" onchange="showPapers(this.value)">
-            <option value="">Select a year</option>
-            <option value="2024">2024</option>
-            <option value="2023">2023</option>
-            <option value="2022">2022</option>
-            <option value="2021">2021</option>
-            <option value="2020">2020</option>
-            <option value="2019">2019</option>
-            <option value="2018">2018</option>
-            <option value="2017">2017</option>
-            <option value="2016">2016</option>
-            <option value="2015">2015</option>
-            <option value="2014">2014</option>
-            <option value="2013">2013</option>
-            <!-- Add more years as needed -->
-        </select>
+        <div class="year-selection">
+            <h2>Select Year to View Papers</h2>
+            <select id="papersYearDropdown" onchange="showPapers(this.value)">
+                <option value="">Select a year</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+                <option value="2015">2015</option>
+                <option value="2014">2014</option>
+                <option value="2013">2013</option>
+            </select>
+        </div>
 
         <div class="year-section" id="papers2024">
             <h2>2024</h2>
@@ -258,6 +216,47 @@
             <ul class="paper-list">
                 <li><a href="2013%20Papers/index.html" target="_blank">See Papers of 2013</a></li>
             </ul>
+        </div>
+
+        <!-- Awards and Features content -->
+        <h2 class="subheading">Awards and features</h2>
+        <div class="carousel owl-carousel" id="awards-features-carousel">
+            <div class="card">
+                <a href="https://www.insmi.cnrs.fr/en/cnrsinfo/mathematician-florian-luca-member-ganda-irn-joins-cnrs-fellow-ambassador-programme" target="_blank">
+                    <img src="images/cnrs.png" alt="The GANDA IRN">
+                </a>
+                <div class="text">2024 The GANDA IRN</div>
+            </div>
+            <div class="card">
+                <a href="https://www.nrf.ac.za/about-us/nrf-awards/2022-2/a-rated-researchers-2022/professor-florian-luca/" target="_blank">
+                    <img src="images/NRF.jpg" alt="NRF A-Rated Researcher">
+                </a>
+                <div class="text">NRF A-Rated Researcher</div>
+            </div>
+            <div class="card">
+                <a href="https://www.assaf.org.za/2023/11/13/top-scholars-in-south-africa-honoured-6/" target="_blank">
+                    <img src="images/Assaf.png" alt="ASSAF Award">
+                </a>
+                <div class="text">2023 ASSAF Award winner</div>
+            </div>
+            <div class="card">
+                <a href="https://www.stias.ac.za/fellows/florian-luca/" target="_blank">
+                    <img src="images/stias-logo.jpg" alt="2023 STIAS Fellow">
+                </a>
+                <div class="text">2023 STIAS Fellow</div>
+            </div>
+            <div class="card">
+                <a href="https://www.gf.org/fellows/florian-luca/" target="_blank">
+                    <img src="images/Guggen.png" alt="2023 STIAS Fellow">
+                </a>
+                <div class="text">2005 Guggenheim fellow</div>
+            </div>
+            <div class="card">
+                <a href="https://www.sams.ac.za/award-winners/" target="_blank">
+                    <img src="images/Sams.png" alt="2017 SAMS Award">
+                </a>
+                <div class="text">2017 SAMS Award winner</div>
+            </div>
         </div>
     </div>
 </section>
@@ -363,6 +362,7 @@
 <section class="contact" id="contact">
     <div class="max-width">
         <h2 class="title">Contact me</h2>
+        <div class="background"></div>
         <div class="contact-content">
             <div class="column left">
                 <style>

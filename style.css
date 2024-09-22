@@ -224,7 +224,7 @@ section .title::after {
 }
 
 .logo {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 20px;
     font-family: 'Arial', sans-serif;
@@ -233,15 +233,20 @@ section .title::after {
     color: #fff;
     z-index: 10;
     line-height: 1em; /* Add this line to reduce the space between lines */
+    font-style: italic; /* Add this line for italic text */
 }
 
 .word1, .word2 {
     display: block;
 }
 
+.word2.hidden {
+    display: none; /* Hide the second word when scrolled */
+}
+
 .word2 {
     margin-top: 0; /* Reset margin */
-    line-height: 0.00001em; /* Control line spacing between the two words */
+    line-height: 000.1em; /* Control line spacing between the two words */
 }
 
 /* Home content styling */
@@ -321,93 +326,54 @@ a.download-cv:hover {
 }
 
 .about .text-and-stats {
-    display: flex; /* Aligns text and stats side by side */
-    justify-content: space-between; /* Ensures space between text and stats */
-    align-items: flex-start; /* Aligns items to the top */
-    margin-bottom: 50px; /* Space between text/stats and awards/features */
+    margin-bottom: 20px; /* Adjust spacing as needed */
 }
 
 .about .column.left {
     flex: 3; /* Left column takes more space */
     max-width: 1000px; /* Restrict maximum width */
-    text-align: left; /* Align text to the left */
+    text-align: left; /* Align text to the left by default */
 }
 
-.about .column.right {
-    flex: -40px; /* Right column (stats) takes less space */
-    margin-top: -20px; /* Remove any top margin if present */
-    padding-top: 0; /* Remove any top padding if present */
+.about .column.left p {
+    text-align: center; /* Center align only the paragraph */
 }
 
-.about .text {
-    font-size: 30px;
-    font-weight: 600;
-    margin: 0; /* Remove margin to prevent misalignment */
-    text-align: left; /* Ensure text is left-aligned */
-    line-height: 1.6; /* Improve readability by adjusting line height */
-}
-
-/* Apply max-width only to paragraphs in the left column */
-.column.left p {
-    max-width: 100%; /* Ensure paragraphs use available width */
-    margin: 0; /* Remove margins */
-    padding: 0; /* Remove padding */
-}
-
-.column.left p + p {
-    margin-top: 20px;
-}
-.about .stats-container {
-    display: flex;
-    justify-content: center; /* Centers the cards horizontally */
-    margin-top: 20px; /* Space from the previous section */
-}
-
-.about .read-more {
-    display: inline-block;
+.about .column.left .read-more {
+    display: block; /* Make it a block element */
+    text-align: center; /* Center align the link */
     margin-top: 10px; /* Space above the link */
-    font-size: 16px; /* Font size for the link */
-    font-weight: 600; /* Bold font */
-    color: #a569bd; /* Link color */
-    text-decoration: none; /* Removes underline */
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-.about .read-more:hover {
-    color: #6a329f; /* Darker color on hover */
+.about .stats-container {
+    display: flex; /* Align stats horizontally */
+    justify-content: center; /* Center the stats */
+    margin-top: 20px; /* Space above the stats */
 }
 
 .about .stats-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 300px; /* Adjust width as needed */
-    height: 400px; /* Adjust height as needed */
-    padding: 18px; /* Adjust padding for spacing */
-    margin: 0 16px; /* Adjust margin for space between cards */
-    border: 2px solid #ccc; /* Border color */
-    border-radius: 10px; /* Rounded corners */
-    background-color: #f9f9f9; /* Background color */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
-    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    display: flex; /* Use flex to list stats */
+    flex-wrap: wrap; /* Wrap items if needed */
+    justify-content: center; /* Center stats horizontally */
+    padding: 0; /* Remove padding */
 }
 
 .about .stat-item {
-    font-size: 14px; /* Adjust font size */
+    font-size: 18px; /* Adjust font size */
     font-weight: 600; /* Bold text */
     color: #333; /* Text color */
-    margin: 5px 0; /* Space between items */
+    margin: 100px 50px; /* Space between items */
 }
 
 .about .stat-item span.stat-number {
     display: block;
-    font-size: 16px; /* Larger font size for numbers */
+    font-size: 20px; /* Larger font size for numbers */
     color: #a569bd; /* Color for numbers */
 }
 
 /* Updated Styles for Awards and Features Content */
-.about .carousel {
+.papers .carousel {
+    width: 100%;
     display: flex;
     gap: 20px;
     flex-wrap: nowrap; /* Change to nowrap to prevent wrapping */
@@ -417,14 +383,14 @@ a.download-cv:hover {
     overflow: hidden; /* Prevent overflow of content */
 }
 
-.about .carousel .text {
+.papers .carousel .text {
     font-size: 10px;
     font-weight: 500;
     margin: 10px 0 7px 0;
     color: rgba(0, 0, 0, 0.6); /* Grey text color */
 }
 
-.about .carousel .card img {
+.papers .carousel .card img {
     height: 100px;
     width: 100px;
     object-fit: cover;
@@ -435,7 +401,7 @@ a.download-cv:hover {
     filter: grayscale(100%); /* Apply grayscale to the images */
 }
 
-.about .carousel .card:hover img {
+.papers .carousel .card:hover img {
     border-color: #a569bd;
     opacity: 1; /* Restore opacity on hover */
     filter: none; /* Remove grayscale on hover */
@@ -452,9 +418,24 @@ a.download-cv:hover {
     display: none; /* Hide by default */
 }
 
+.year-selection {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    margin-top: 20px; /* Add some spacing above */
+}
+
 /* Showing the year section when active */
 .year-section.active {
     display: block; /* Show the section when it's active */
+}
+
+.papers h2.subheading {
+    text-align: center; /* Center the heading */
+    margin: 200px 0 10px 0; /* Add margin for spacing */
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 18px;
+    font-weight: normal; /* Remove bold style */
 }
 
 body {
@@ -570,27 +551,28 @@ ul.paper-list .paper-details p {
 }
 
 .contact {
-   background-image: url('images/IMG_3006.jpg');
-   background-size: cover;
-   background-position: center;
-   background-attachment: fixed;
+    position: relative; /* Ensure positioning context */
+    overflow: hidden; /* Hide overflow from the background */
 }
 
-.contact::before {
-   content: '';
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   background-color: rgba(0, 0, 0, 0.5); /* Adjust the 0.5 for the level of grey */
-   z-index: 1;
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/IMG_3006.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) brightness(190%); /* Grey out the background */
+    z-index: 1; /* Position it below the content */
 }
 
 .contact-content {
-   position: relative;
-   z-index: 2; /* Ensures content is on top of the grey overlay */
+    position: relative;
+    z-index: 2; /* Keep content above the background */
 }
+
 
 .contact .contact-content .column{
     width: calc(50% - 30px);
@@ -633,6 +615,7 @@ ul.paper-list .paper-details p {
 .contact .right form .textarea{
     height: 80px;
     width: 100%;
+    margin-bottom: 20px;
 }
 .contact .right form .name{
     margin-right: 10px;
@@ -660,6 +643,7 @@ ul.paper-list .paper-details p {
 .contact .right form .button-area{
   display: flex;
   align-items: center;
+  margin-top: 20px;
 }
 .right form .button-area button{
   color: #fff;
