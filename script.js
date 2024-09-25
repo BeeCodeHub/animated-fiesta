@@ -49,7 +49,7 @@ $(document).ready(function() {
     });
 
     $("#collaborations-carousel").owlCarousel({
-        loop: true,
+        loop: false,
         margin: 0,
         nav: true,
         items: 4,

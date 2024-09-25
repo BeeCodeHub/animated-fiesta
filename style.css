@@ -214,14 +214,35 @@ section .title::after {
 }
 
 /* Home Section Styling */
+/* Home Section Styling */
 .home {
     position: relative; /* Establishes a positioning context for the logo */
     padding-top: 80px; /* Creates space for the logo at the top */
+    overflow: hidden; /* Ensures the pseudo-element stays within bounds */
+}
+
+/* Pseudo-element for greying out background */
+.home::before {
+    content: ''; /* Required for the pseudo-element to display */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: url('images/BackgroundImage.jpg'); /* Add your image URL here */
     background-position: -7.3cm -15.9cm; /* Moves the background image 5 cm to the right */
     background-repeat: no-repeat; /* Prevents the image from repeating */
     background-size: 150%; /* Ensures the image scales properly */
+    filter: grayscale(100%) brightness(115%); /* Apply greying effect */
+    z-index: 0; /* Ensure the background image stays behind the content */
 }
+
+/* Content in home section */
+.home-content {
+    position: relative; /* Ensure content stays above the pseudo-element */
+    z-index: 1; /* Bring content above the background */
+}
+
 
 .logo {
     position: fixed;
@@ -318,6 +339,48 @@ a.download-cv:hover {
     color: #fff
 }
 
+/* Collaborations: No changes, keeping the original gradient */
+.collaborations {
+    position: relative;
+    background: radial-gradient(circle, #eafaf1 70%, #19747E 100%);
+    padding: 20px;
+}
+
+.collaborations::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    z-index: -1;
+    background-size: 150%;
+    background-repeat: no-repeat;
+    /* Optionally add a background image */
+}
+
+/* About: Switched gradient for the about section */
+.about {
+    position: relative;
+    /* Switch gradient direction for the about section */
+    background-color: #eafaf1; /* Lighter color */
+    padding: 20px;
+    z-index: 2;
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 55%;
+    background: radial-gradient(circle at top, #eafaf1 60%, #19747E 100%);
+    z-index: -1;
+    opacity: 0.9;
+}
+
 /* About section styling */
 .about .about-content {
     display: block;
@@ -326,7 +389,7 @@ a.download-cv:hover {
 }
 
 .about .text-and-stats {
-    margin-bottom: 20px; /* Adjust spacing as needed */
+    margin-bottom: 100px; /* Adjust spacing as needed */
 }
 
 .about .column.left {
@@ -362,7 +425,7 @@ a.download-cv:hover {
     font-size: 18px; /* Adjust font size */
     font-weight: 600; /* Bold text */
     color: #333; /* Text color */
-    margin: 100px 50px; /* Space between items */
+    margin: 200px 50px; /* Space between items */
 }
 
 .about .stat-item span.stat-number {
@@ -371,16 +434,41 @@ a.download-cv:hover {
     color: #a569bd; /* Color for numbers */
 }
 
+/* About: Switched gradient for the about section */
+.papers {
+    position: relative;
+    /* Switch gradient direction for the about section */
+    background-color: #eafaf1; /* Lighter color */
+    padding: 20px;
+    z-index: 2;
+}
+
+.papers::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 55%;
+    background: radial-gradient(circle at top, #eafaf1 60%, #19747E 100%);
+    z-index: -1;
+    opacity: 0.9;
+}
 /* Updated Styles for Awards and Features Content */
 .papers .carousel {
     width: 100%;
     display: flex;
     gap: 20px;
-    flex-wrap: nowrap; /* Change to nowrap to prevent wrapping */
+    flex-wrap: nowrap; /* Prevent wrapping */
     justify-content: center; /* Centers the cards horizontally */
     margin-top: 50px; /* Margin to separate from stats */
     padding-top: 50px; /* Additional padding to ensure spacing */
     overflow: hidden; /* Prevent overflow of content */
+}
+
+.papers .carousel .card {
+    flex: 0 0 calc((100% - (20px * 3)) / 4); /* Calculate width for 4 cards */
+    /* This assumes a gap of 20px between cards. Adjust as necessary. */
 }
 
 .papers .carousel .text {
@@ -413,6 +501,7 @@ a.download-cv:hover {
     gap: 20px; /* Add gap between columns and rows */
 }
 
+
 /* Year section styling */
 .year-section {
     display: none; /* Hide by default */
@@ -432,7 +521,7 @@ a.download-cv:hover {
 
 .papers h2.subheading {
     text-align: center; /* Center the heading */
-    margin: 200px 0 10px 0; /* Add margin for spacing */
+    margin: 350px 0 10px 0; /* Add margin for spacing */
     color: rgba(0, 0, 0, 0.5);
     font-size: 18px;
     font-weight: normal; /* Remove bold style */
@@ -483,10 +572,18 @@ ul.paper-list .paper-details p {
     margin: 5px 0;
 }
 
+/*.papers h2.subheading {
+    text-align: center;
+    margin: 50px 0 10px 0; *//* Reduce the top margin *//*
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 18px;
+    font-weight: normal; *//* Keep normal weight *//*
+}*/
+
 /* Collaborations Section Styles */
 .collaborations {
     display: block;
-    padding: 60px 0;
+    padding: 80px 0;
 }
 
 .collaborations .max-width {
@@ -550,9 +647,18 @@ ul.paper-list .paper-details p {
     margin: 0;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    display: flex; /* Use flexbox for vertical layout */
+    flex-direction: column; /* Arrange elements vertically */
+    min-height: 100vh; /* Full height of the viewport */
+}
+
 .contact {
-    position: relative; /* Ensure positioning context */
-    overflow: hidden; /* Hide overflow from the background */
+    position: relative; /* Ensure relative positioning for z-index to work */
+    overflow: hidden; /* Hide overflow from the background image */
+    padding-bottom: 0; /* Remove bottom padding */
 }
 
 .background {
@@ -561,18 +667,18 @@ ul.paper-list .paper-details p {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('images/IMG_3006.jpg');
-    background-size: cover;
+    background-image: url('images/IMG_3006.jpg'); /* Replace with your image path */
+    background-size: 150%;
     background-position: center;
-    filter: grayscale(100%) brightness(190%); /* Grey out the background */
-    z-index: 1; /* Position it below the content */
+    filter: grayscale(100%) brightness(190%) contrast(90%);
+    z-index: 1; /* Ensure it sits behind the content */
 }
 
-.contact-content {
+.contact .contact-content {
     position: relative;
-    z-index: 2; /* Keep content above the background */
+    z-index: 2;
+    padding-bottom: 0;
 }
-
 
 .contact .contact-content .column{
     width: calc(50% - 30px);
@@ -585,9 +691,23 @@ ul.paper-list .paper-details p {
 .contact .contact-content .left p{
     text-align: justify;
 }
-.contact .contact-content .left .icons{
-    margin: 10px 0;
+.contact .contact-content .left .icons .fa-user {
+    font-size: 25px; /* Adjust the size for the user icon */
 }
+
+.contact .contact-content .left .icons .fa-map-marker-alt {
+    font-size: 25px; /* Adjust the size for the map marker icon */
+}
+
+.contact .contact-content .left .icons .fa-envelope {
+    font-size: 16px; /* Adjust the size for the envelope icon */
+}
+
+.contact .contact-content .info .head {
+    font-weight: 500;
+    font-size: 20px; /* Adjust this value to increase the font size */
+}
+
 .contact .contact-content .row{
     display: flex;
     height: 65px;
@@ -664,18 +784,33 @@ ul.paper-list .paper-details p {
   color: #a569bd;
   background: none;
 }
-/* footer section styling */
-footer{
-    background: #111;
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    position: relative;
+    z-index: 2;
+    background-color: #000;
     padding: 15px 23px;
     color: #fff;
     text-align: center;
+    margin-top: 240px; /* Ensure there is no top margin */
+    margin-bottom: 0; /* Remove any bottom margin */
 }
-footer span a{
+
+footer span a {
     color: #a569bd;
     text-decoration: none;
 }
-footer span a:hover{
+
+footer a{
+    color: #a569bd
+}
+
+footer span a:hover {
     text-decoration: underline;
 }
 
