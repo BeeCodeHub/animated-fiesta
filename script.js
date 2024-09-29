@@ -31,22 +31,22 @@ $(document).ready(function() {
         document.getElementById('logo').classList.add('fixed-logo');
     }
 
-    $("#awards-features-carousel").owlCarousel({
-        loop: true,
-        margin: 20,
-        nav: true,
-        items: 4,
-        autoplay: true,
-        autoplayTimeout: 3000,
-        autoplayHoverPause: true,
-        responsive: {
-            0: { items: 1 },
-            600: { items: 2 },
-            1000: { items: 4 }
-        }
-    }).on('initialized.owl.carousel', function(event) {
-        console.log('Awards Features Carousel initialized');
-    });
+//    $("#awards-features-carousel").owlCarousel({
+//        loop: true,
+//        margin: 20,
+//        nav: true,
+//        items: 4,
+//        autoplay: true,
+//        autoplayTimeout: 3000,
+//        autoplayHoverPause: true,
+//        responsive: {
+//            0: { items: 1 },
+//            600: { items: 2 },
+//            1000: { items: 4 }
+//        }
+//    }).on('initialized.owl.carousel', function(event) {
+//        console.log('Awards Features Carousel initialized');
+//    });
 
     $("#collaborations-carousel").owlCarousel({
         loop: false,
