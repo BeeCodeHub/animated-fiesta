@@ -388,10 +388,6 @@ a.download-cv:hover {
     text-align: center;
 }
 
-.about .text-and-stats {
-    margin-bottom: 100px; /* Adjust spacing as needed */
-}
-
 .about .column.left {
     flex: 3; /* Left column takes more space */
     max-width: 1000px; /* Restrict maximum width */
@@ -408,10 +404,16 @@ a.download-cv:hover {
     margin-top: 10px; /* Space above the link */
 }
 
+.about .text-and-stats {
+    margin-bottom: 400px; /* Adjust spacing as needed */
+}
+
 .about .stats-container {
     display: flex; /* Align stats horizontally */
     justify-content: center; /* Center the stats */
     margin-top: 20px; /* Space above the stats */
+    opacity: 0; /* Start invisible */
+    transition: opacity 0.5s ease-out;
 }
 
 .about .stats-card {
@@ -419,13 +421,17 @@ a.download-cv:hover {
     flex-wrap: wrap; /* Wrap items if needed */
     justify-content: center; /* Center stats horizontally */
     padding: 0; /* Remove padding */
+    transform: translateY(50px); /* Start slightly below */
+    transition: transform 0.5s ease-out;
 }
 
 .about .stat-item {
     font-size: 18px; /* Adjust font size */
     font-weight: 600; /* Bold text */
     color: #333; /* Text color */
-    margin: 200px 50px; /* Space between items */
+    margin: 20px 50px; /* Space between items */
+    opacity: 0; /* Start invisible */
+    transition: opacity 0.5s ease-out;
 }
 
 .about .stat-item span.stat-number {
@@ -434,6 +440,18 @@ a.download-cv:hover {
     color: #a569bd; /* Color for numbers */
 }
 
+/* Animation classes */
+.about .stats-container.show {
+    opacity: 1;
+}
+
+.about .stats-card.show {
+    transform: translateY(0);
+}
+
+.about .stat-item.show {
+    opacity: 1;
+}
 /* About: Switched gradient for the about section */
 .papers {
     position: relative;
