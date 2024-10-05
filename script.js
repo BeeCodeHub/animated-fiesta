@@ -1,53 +1,44 @@
 $(document).ready(function() {
     console.log("Document ready!");
 
-   $(document).ready(function() {
-       $(window).scroll(function() {
-           $('.navbar').toggleClass("sticky", this.scrollY > 20);
+    // Navbar sticky and logo hide on scroll
+    $(window).scroll(function() {
+        $('.navbar').toggleClass("sticky", this.scrollY > 20);
 
-           const word2 = $('.word2');
-           if (this.scrollY > 0) {
-               word2.addClass('hidden'); // Hide on scroll
-           } else {
-               word2.removeClass('hidden'); // Show on top of the page
-           }
-       });
-   });
+        const word2 = $('.word2');
+        if (this.scrollY > 0) {
+            word2.addClass('hidden');
+        } else {
+            word2.removeClass('hidden');
+        }
+    });
 
-    $('.menu-btn').click(function() {
+    // Mobile menu toggle
+    $('.menu-btn').click(function(){
         $('.navbar .menu').toggleClass("active");
         $('.menu-btn i').toggleClass("active");
     });
 
+    // Close mobile menu when a link is clicked
+    $('.navbar .menu li a').click(function() {
+        $('.navbar .menu').removeClass("active");
+        $('.menu-btn i').removeClass("active");
+    });
+
+    // Typing animation
     if ($('.typing').length > 0) {
         new Typed(".typing", { strings: ["Professor"], typeSpeed: 100, backSpeed: 60, loop: true });
     }
-
     if ($('.typing-2').length > 0) {
         new Typed(".typing-2", { strings: ["Professor"], typeSpeed: 100, backSpeed: 60, loop: true });
     }
 
+    // Fixed logo for home page
     if (window.location.href.match(/\/(index.html|home)?$/)) {
         document.getElementById('logo').classList.add('fixed-logo');
     }
 
-//    $("#awards-features-carousel").owlCarousel({
-//        loop: true,
-//        margin: 20,
-//        nav: true,
-//        items: 4,
-//        autoplay: true,
-//        autoplayTimeout: 3000,
-//        autoplayHoverPause: true,
-//        responsive: {
-//            0: { items: 1 },
-//            600: { items: 2 },
-//            1000: { items: 4 }
-//        }
-//    }).on('initialized.owl.carousel', function(event) {
-//        console.log('Awards Features Carousel initialized');
-//    });
-
+    // Collaborations carousel
     $("#collaborations-carousel").owlCarousel({
         loop: false,
         margin: 0,
@@ -64,28 +55,28 @@ $(document).ready(function() {
         console.log('Collaborations Carousel initialized');
     });
 
+    // Fibonacci function for anti-spam
     function fibonacci(n) {
         let fib = [0, 1];
-
         for (let i = 2; i <= n; i++) {
             fib[i] = fib[i - 1] + fib[i - 2];
         }
         return fib[n];
     }
 
+    // Generate Fibonacci question
     function generateFibonacciQuestion() {
         const randomN = Math.floor(Math.random() * 20) + 1;
         const answer = fibonacci(randomN);
-
         if (document.getElementById('human-question-label')) {
             document.getElementById('human-question-label').textContent = `What is the ${randomN}th Fibonacci number? (Anti-spam)`;
         } else {
             console.error("Element with ID 'human-question-label' not found.");
         }
-
         return answer;
     }
 
+    // Set submission time
     function setSubmissionTime() {
         const now = new Date();
         document.getElementById("submissionTimeUTC").value = now.toISOString();
@@ -94,16 +85,15 @@ $(document).ready(function() {
 
     let correctAnswer = generateFibonacciQuestion();
 
+    // Form submission
     document.querySelector('form').addEventListener('submit', function(e) {
         e.preventDefault();
-
         document.getElementById('submissionTimeUTC').value = new Date().toISOString();
-
         const userAnswer = document.getElementById('human_verification').value;
 
         if (parseInt(userAnswer) !== correctAnswer) {
             alert("Incorrect answer to the math question. Please try again.");
-            correctAnswer = generateFibonacciQuestion(); // Regenerate question on failure
+            correctAnswer = generateFibonacciQuestion();
             return;
         }
 
@@ -116,7 +106,7 @@ $(document).ready(function() {
             alert(response.ok ? "Thank you for your message! We will get back to you shortly." : "Oops! There was a problem submitting your form.");
             if (response.ok) {
                 this.reset();
-                correctAnswer = generateFibonacciQuestion(); // Regenerate question after reset
+                correctAnswer = generateFibonacciQuestion();
             }
         }).catch(error => {
             console.error('Error:', error);
@@ -124,6 +114,7 @@ $(document).ready(function() {
         });
     });
 
+    // Error message display
     const urlParams = new URLSearchParams(window.location.search);
     const errorMessage = document.getElementById('error-message');
     if (errorMessage) {
@@ -132,6 +123,7 @@ $(document).ready(function() {
         errorMessage.style.display = status ? 'block' : 'none';
     }
 
+    // Year dropdown change handler
     function handleYearDropdownChange(event) {
         var selectedYear = event.target.value;
         showPapers(selectedYear);

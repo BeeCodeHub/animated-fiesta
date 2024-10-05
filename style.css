@@ -88,7 +88,7 @@ section .title::after {
     transform: translateX(-50%);
 }
 
-/* Navbar styling */
+/* Existing styles */
 .navbar {
     position: fixed;
     width: 100%;
@@ -96,7 +96,14 @@ section .title::after {
     padding: 30px 0;
     font-family: 'Ubuntu', sans-serif;
     transition: all 0.3s ease;
-    background: #19747E; /* Caramel background */
+    background: #19747E;
+}
+
+.navbar .max-width {
+    position: relative;
+    max-width: 1300px;
+    padding: 0 80px;
+    margin: auto;
 }
 
 .navbar.sticky {
@@ -104,20 +111,16 @@ section .title::after {
     background: #19747E;
 }
 
-.navbar .max-width {
-    position: relative; /* Ensure relative positioning for child elements */
-}
-
 .navbar .menu {
     position: absolute;
-    top: 50%; /* Adjust vertical alignment */
-    transform: translateY(-50%); /* Center vertically */
-    right: 20px; /* Adjust distance from the right */
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
 }
 
 .navbar .menu li {
     display: inline-block;
-    position: relative; /* Ensure submenu is positioned relative to this item */
+    position: relative;
 }
 
 .navbar .menu li a {
@@ -127,7 +130,7 @@ section .title::after {
     font-weight: 500;
     margin-left: 25px;
     transition: color 0.3s ease;
-    padding: 10px 15px; /* Add padding for better clickability */
+    padding: 10px 15px;
 }
 
 .navbar .menu li a:hover {
@@ -140,47 +143,45 @@ section .title::after {
 
 /* Submenu styling */
 .submenu {
-    display: none; /* Hidden by default */
-    position: absolute; /* Positioned absolutely within the parent */
-    top: 100%; /* Position it just below the parent menu item */
-    left: 0; /* Align submenu to the left of the parent item */
-    background-color: #19747E; /* Background color for submenu */
-    padding: 10px 0; /* Padding for the submenu */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for submenu */
-    width: max-content; /* Adjust width to fit content */
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #19747E;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: max-content;
 }
 
-/* Ensure dropdown takes full width */
 .submenu li select {
-    background-color: #19747E; /* Same background color as the parent menu */
-    color: #F5F5DC; /* Text color for the select dropdown */
-    font-size: 16px; /* Font size for select options */
-    border: none; /* Remove default border */
-    width: 130px; /* Set a specific width for the dropdown */
-    padding: 5px; /* Add padding inside the dropdown */
+    background-color: #19747E;
+    color: #F5F5DC;
+    font-size: 16px;
+    border: none;
+    width: 130px;
+    padding: 5px;
 }
 
 .papers {
-    margin-bottom: 70px; /* Increase the bottom margin */
+    margin-bottom: 70px;
 }
 
-/* Show submenu on hover */
 .papers-menu:hover .submenu {
-    display: block; /* Show submenu on hover */
-    z-index: 20; /* Ensure it appears above other content */
+    display: block;
+    z-index: 20;
 }
 
-/* Add transition for smooth dropdown effect */
 .submenu, .submenu li {
     transition: all 0.3s ease;
 }
 
-/* Menu button styling */
+/* styles for menu button */
 .menu-btn {
     color: #fff;
     font-size: 23px;
     cursor: pointer;
     display: none;
+    position:
 }
 
 .scroll-up-btn {
@@ -214,35 +215,31 @@ section .title::after {
 }
 
 /* Home Section Styling */
-/* Home Section Styling */
 .home {
-    position: relative; /* Establishes a positioning context for the logo */
-    padding-top: 80px; /* Creates space for the logo at the top */
-    overflow: hidden; /* Ensures the pseudo-element stays within bounds */
+    position: relative;
+    padding-top: 80px;
+    overflow: hidden;
 }
 
-/* Pseudo-element for greying out background */
 .home::before {
-    content: ''; /* Required for the pseudo-element to display */
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('images/BackgroundImage.jpg'); /* Add your image URL here */
-    background-position: -7.3cm -15.9cm; /* Moves the background image 5 cm to the right */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-size: 150%; /* Ensures the image scales properly */
-    filter: grayscale(100%) brightness(115%); /* Apply greying effect */
-    z-index: 0; /* Ensure the background image stays behind the content */
+    background-image: url('images/BackgroundImage.jpg');
+    background-position: -7.3cm -15.9cm;
+    background-repeat: no-repeat;
+    background-size: 150%;
+    filter: grayscale(100%) brightness(115%);
+    z-index: 0;
 }
 
-/* Content in home section */
 .home-content {
-    position: relative; /* Ensure content stays above the pseudo-element */
-    z-index: 1; /* Bring content above the background */
+    position: relative;
+    z-index: 1;
 }
-
 
 .logo {
     position: fixed;
@@ -252,9 +249,9 @@ section .title::after {
     font-size: 1.5em;
     margin: 0;
     color: #fff;
-    z-index: 10;
-    line-height: 1em; /* Add this line to reduce the space between lines */
-    font-style: italic; /* Add this line for italic text */
+    z-index: 1000;
+    line-height: 1em;
+    font-style: italic;
 }
 
 .word1, .word2 {
@@ -262,24 +259,22 @@ section .title::after {
 }
 
 .word2.hidden {
-    display: none; /* Hide the second word when scrolled */
+    display: none;
 }
 
 .word2 {
-    margin-top: 0; /* Reset margin */
-    line-height: 000.1em; /* Control line spacing between the two words */
+    margin-top: 0;
+    line-height: 0.1em;
 }
 
-/* Home content styling */
 .home-content-container {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Aligns the content to the left */
-    gap: 20px; /* Adjust gap between the description and image */
+    justify-content: flex-start;
+    gap: 20px;
     padding: 0;
 }
 
-/* Description and image styling remains unchanged */
 .home-description {
     flex: 2;
     max-width: 50%;
@@ -323,23 +318,23 @@ section .title::after {
 }
 
 a.download-cv {
-    display: inline-block; /* Ensures the link behaves like a button */
-    color: #fff; /* Text color inside the button */
-    background-color: #19747E; /* Background color for the button */
+    display: inline-block;
+    color: #fff;
+    background-color: #19747E;
     font-weight: bold;
-    text-decoration: none; /* Remove underline */
-    padding: 10px 20px; /* Add padding inside the button */
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-    margin-top: 40px; /* Adds space above the button if needed */
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 40px;
 }
 
 a.download-cv:hover {
-    background-color: #8e44ad; /* Darker shade of the background color on hover */
-    color: #fff
+    background-color: #8e44ad;
+    color: #fff;
 }
 
-/* Collaborations: No changes, keeping the original gradient */
+/* Collaborations */
 .collaborations {
     position: relative;
     background: radial-gradient(circle, #eafaf1 70%, #19747E 100%);
@@ -357,14 +352,12 @@ a.download-cv:hover {
     z-index: -1;
     background-size: 150%;
     background-repeat: no-repeat;
-    /* Optionally add a background image */
 }
 
-/* About: Switched gradient for the about section */
+/* About */
 .about {
     position: relative;
-    /* Switch gradient direction for the about section */
-    background-color: #eafaf1; /* Lighter color */
+    background-color: #eafaf1;
     padding: 20px;
     z-index: 2;
 }
@@ -381,7 +374,6 @@ a.download-cv:hover {
     opacity: 0.9;
 }
 
-/* About section styling */
 .about .about-content {
     display: block;
     margin: 0 auto;
@@ -389,58 +381,68 @@ a.download-cv:hover {
 }
 
 .about .column.left {
-    flex: 3; /* Left column takes more space */
-    max-width: 1000px; /* Restrict maximum width */
-    text-align: left; /* Align text to the left by default */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .about .column.left p {
-    text-align: center; /* Center align only the paragraph */
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .about .column.left .read-more {
-    display: block; /* Make it a block element */
-    text-align: center; /* Center align the link */
-    margin-top: 10px; /* Space above the link */
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #19747E;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.about .column.left .read-more:hover {
+    background-color: #a569bd;
 }
 
 .about .text-and-stats {
-    margin-bottom: 400px; /* Adjust spacing as needed */
+    margin-bottom: 400px;
 }
 
 .about .stats-container {
-    display: flex; /* Align stats horizontally */
-    justify-content: center; /* Center the stats */
-    margin-top: 20px; /* Space above the stats */
-    opacity: 0; /* Start invisible */
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    opacity: 0;
     transition: opacity 0.5s ease-out;
 }
 
 .about .stats-card {
-    display: flex; /* Use flex to list stats */
-    flex-wrap: wrap; /* Wrap items if needed */
-    justify-content: center; /* Center stats horizontally */
-    padding: 0; /* Remove padding */
-    transform: translateY(50px); /* Start slightly below */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    transform: translateY(50px);
     transition: transform 0.5s ease-out;
 }
 
 .about .stat-item {
-    font-size: 18px; /* Adjust font size */
-    font-weight: 600; /* Bold text */
-    color: #333; /* Text color */
-    margin: 20px 50px; /* Space between items */
-    opacity: 0; /* Start invisible */
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 20px 50px;
+    opacity: 0;
     transition: opacity 0.5s ease-out;
 }
 
 .about .stat-item span.stat-number {
     display: block;
-    font-size: 20px; /* Larger font size for numbers */
-    color: #a569bd; /* Color for numbers */
+    font-size: 20px;
+    color: #a569bd;
 }
 
-/* Animation classes */
 .about .stats-container.show {
     opacity: 1;
 }
@@ -452,11 +454,11 @@ a.download-cv:hover {
 .about .stat-item.show {
     opacity: 1;
 }
-/* About: Switched gradient for the about section */
+
+/* Papers */
 .papers {
     position: relative;
-    /* Switch gradient direction for the about section */
-    background-color: #eafaf1; /* Lighter color */
+    background-color: #eafaf1;
     padding: 20px;
     z-index: 2;
 }
@@ -483,11 +485,11 @@ a.download-cv:hover {
 .awards-features-carousel {
     display: flex;
     gap: 20px;
-    animation: slide 30s linear infinite; /* Adjust time as needed */
+    animation: slide 30s linear infinite;
 }
 
 .awards-features-carousel .card {
-    flex: 0 0 calc(25% - 15px); /* Adjust width as needed */
+    flex: 0 0 calc(25% - 15px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -536,54 +538,33 @@ a.download-cv:hover {
     }
 }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    .awards-features-carousel .card {
-        flex: 0 0 150px;
-    }
-}
-
-@media (max-width: 480px) {
-    .awards-features-carousel .card {
-        flex: 0 0 120px;
-    }
-    .awards-features-carousel .card a {
-        width: 80px;
-        height: 80px;
-    }
-    .awards-features-carousel .text {
-        font-size: 10px;
-    }
-}
 .papers .papers-content {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Add gap between columns and rows */
+    gap: 20px;
 }
 
-/* Year section styling */
 .year-section {
-    display: none; /* Hide by default */
+    display: none;
 }
 
 .year-selection {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    margin-top: 20px; /* Add some spacing above */
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
 }
 
-/* Showing the year section when active */
 .year-section.active {
-    display: block; /* Show the section when it's active */
+    display: block;
 }
 
 .papers h2.subheading {
-    text-align: center; /* Center the heading */
-    margin: 350px 0 10px 0; /* Add margin for spacing */
+    text-align: center;
+    margin: 350px 0 10px 0;
     color: rgba(0, 0, 0, 0.5);
     font-size: 18px;
-    font-weight: normal; /* Remove bold style */
+    font-weight: normal;
 }
 
 body {
@@ -631,14 +612,6 @@ ul.paper-list .paper-details p {
     margin: 5px 0;
 }
 
-/*.papers h2.subheading {
-    text-align: center;
-    margin: 50px 0 10px 0; *//* Reduce the top margin *//*
-    color: rgba(0, 0, 0, 0.5);
-    font-size: 18px;
-    font-weight: normal; *//* Keep normal weight *//*
-}*/
-
 /* Collaborations Section Styles */
 .collaborations {
     display: block;
@@ -671,8 +644,8 @@ ul.paper-list .paper-details p {
     justify-content: flex-start;
     align-items: center;
     text-align: center;
-    width: 245px; /* Fixed width for square container */
-    height: 500px; /* Fixed height for square container */
+    width: 245px;
+    height: 500px;
     padding: 20px;
     margin: 15px;
     border: 2px solid #ccc;
@@ -686,11 +659,11 @@ ul.paper-list .paper-details p {
     font-size: 16px;
     font-weight: 600;
     color: #333;
-    margin-bottom: 10px; /* Add some space below the name */
+    margin-bottom: 10px;
 }
 
 .collaborations .card:hover {
-    background-color: #f0f0f0; /* Light grey or any other subtle color for hover */
+    background-color: #f0f0f0;
 }
 
 .collaborations .text {
@@ -709,15 +682,15 @@ ul.paper-list .paper-details p {
 html, body {
     margin: 0;
     padding: 0;
-    display: flex; /* Use flexbox for vertical layout */
-    flex-direction: column; /* Arrange elements vertically */
-    min-height: 100vh; /* Full height of the viewport */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .contact {
-    position: relative; /* Ensure relative positioning for z-index to work */
-    overflow: hidden; /* Hide overflow from the background image */
-    padding-bottom: 0; /* Remove bottom padding */
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 0;
 }
 
 .background {
@@ -726,11 +699,11 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('images/IMG_3006.jpg'); /* Replace with your image path */
+    background-image: url('images/IMG_3006.jpg');
     background-size: 150%;
     background-position: center;
     filter: grayscale(100%) brightness(190%) contrast(90%);
-    z-index: 1; /* Ensure it sits behind the content */
+    z-index: 1;
 }
 
 .contact .contact-content {
@@ -739,68 +712,76 @@ html, body {
     padding-bottom: 0;
 }
 
-.contact .contact-content .column{
+.contact .contact-content .column {
     width: calc(50% - 30px);
 }
-.contact .contact-content .text{
+
+.contact .contact-content .text {
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 10px;
 }
-.contact .contact-content .left p{
+
+.contact .contact-content .left p {
     text-align: justify;
 }
+
 .contact .contact-content .left .icons .fa-user {
-    font-size: 25px; /* Adjust the size for the user icon */
+    font-size: 25px;
 }
 
 .contact .contact-content .left .icons .fa-map-marker-alt {
-    font-size: 25px; /* Adjust the size for the map marker icon */
+    font-size: 25px;
 }
 
 .contact .contact-content .left .icons .fa-envelope {
-    font-size: 16px; /* Adjust the size for the envelope icon */
+    font-size: 16px;
 }
 
 .contact .contact-content .info .head {
     font-weight: 500;
-    font-size: 20px; /* Adjust this value to increase the font size */
+    font-size: 20px;
 }
 
-.contact .contact-content .row{
+.contact .contact-content .row {
     display: flex;
     height: 65px;
     align-items: center;
 }
-.contact .contact-content .row .info{
+
+.contact .contact-content .row .info {
     margin-left: 30px;
 }
-.contact .contact-content .row i{
+
+.contact .contact-content .row i {
     font-size: 25px;
     color: #a569bd;
 }
-.contact .contact-content .info .head{
-    font-weight: 500;
-}
-.contact .right form .fields{
+
+.contact .right form .fields {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
+
 .contact .right form .field,
-.contact .right form .fields .field{
-    height: 45px;
-    width: 100%;
+.contact .right form .fields .field {
+    width: calc(50% - 15px);
     margin-bottom: 15px;
 }
-.contact .right form .textarea{
+
+.contact .right form .textarea {
     height: 80px;
     width: 100%;
     margin-bottom: 20px;
 }
-.contact .right form .name{
+
+.contact .right form .name {
     margin-right: 10px;
 }
+
 .contact .right form .field input,
-.contact .right form .textarea textarea{
+.contact .right form .textarea textarea {
     height: 100%;
     width: 100%;
     border: 1px solid lightweight;
@@ -811,42 +792,42 @@ html, body {
     font-family: 'Poppins', sans-serif;
     transition: all 0.3s ease;
 }
+
 .contact .right form .field input:focus,
-.contact .right form .textarea textarea:focus{
+.contact .right form .textarea textarea:focus {
     border-color: #b3b3b3;
 }
-.contact .right form .textarea textarea{
-  padding-top: 10px;
-  resize: none;
-}
-.contact .right form .button-area{
-  display: flex;
-  align-items: center;
-  margin-top: 20px;
-}
-.right form .button-area button{
-  color: #fff;
-  display: block;
-  width: 160px!important;
-  height: 45px;
-  outline: none;
-  font-size: 18px;
-  font-weight: 500;
-  border-radius: 6px;
-  cursor: pointer;
-  flex-wrap: nowrap;
-  background: #a569bd;
-  border: 2px solid #a569bd;
-  transition: all 0.3s ease;
-}
-.right form .button-area button:hover{
-  color: #a569bd;
-  background: none;
+
+.contact .right form .textarea textarea {
+    padding-top: 10px;
+    resize: none;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
+.contact .right form .button-area {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.right form .button-area button {
+    color: #fff;
+    display: block;
+    width: 160px!important;
+    height: 45px;
+    outline: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    flex-wrap: nowrap;
+    background: #a569bd;
+    border: 2px solid #a569bd;
+    transition: all 0.3s ease;
+}
+
+.right form .button-area button:hover {
+    color: #a569bd;
+    background: none;
 }
 
 footer {
@@ -856,8 +837,8 @@ footer {
     padding: 15px 23px;
     color: #fff;
     text-align: center;
-    margin-top: 240px; /* Ensure there is no top margin */
-    margin-bottom: 0; /* Remove any bottom margin */
+    margin-top: 240px;
+    margin-bottom: 0;
 }
 
 footer span a {
@@ -865,8 +846,8 @@ footer span a {
     text-decoration: none;
 }
 
-footer a{
-    color: #a569bd
+footer a {
+    color: #a569bd;
 }
 
 footer span a:hover {
@@ -875,78 +856,234 @@ footer span a:hover {
 
 #error-message {
     color: red;
-    display: none; /* Hidden by default */
+    display: none;
 }
+
 /* responsive media query start */
 @media (max-width: 1104px) {
-    .about .about-content .left img{
+    .about .about-content .left img {
         height: 350px;
         width: 350px;
+    }
+    .max-width {
+        padding: 0 50px;
     }
 }
 
 @media (max-width: 991px) {
-    .max-width{
+    .max-width {
         padding: 0 50px;
     }
 }
-@media (max-width: 947px){
-    .menu-btn{
+
+/* Media query for mobile devices */
+@media (max-width: 947px) {
+    .navbar {
+        padding: 10px 0px;
+    }
+
+    .navbar .max-width {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        position: static;
+        margin-left: -70px;
+        font-size: 1.2em;
+    }
+
+    .menu-btn {
         display: block;
-        z-index: 999;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 101;
     }
-    .menu-btn i.active:before{
-        content: "\f00d";
-    }
-    .navbar .menu{
+    .navbar .menu {
         position: fixed;
-        height: 100vh;
+        height: auto; /* Change from 100vh to auto */
+        max-height: 90vh; /* Set a maximum height */
         width: 100%;
         left: -100%;
         top: 0;
         background: #111;
         text-align: center;
         padding-top: 80px;
+        padding-bottom: 20px; /* Add some bottom padding */
         transition: all 0.3s ease;
+        overflow-y: auto; /* Allow scrolling if content exceeds max-height */
     }
-    .navbar .menu.active{
+
+    .navbar .menu.active {
         left: 0;
     }
-    .navbar .menu li{
+
+    .navbar .menu:before {
+        content: "";
         display: block;
+        height: 60px; /* Adjust this value to match your navbar height */
     }
-    .navbar .menu li a{
+
+    .navbar .menu li {
+        margin: 15px 0;
+    }
+
+    .navbar .menu li a {
         display: inline-block;
-        margin: 20px 0;
-        font-size: 25px;
+        font-size: 18px;
+        padding: 10px 0;
     }
-    .home .home-content .text-2{
-        font-size: 70px;
+
+    .navbar .menu li:last-child {
+        margin-bottom: 0; /* Remove margin from last item */
     }
-    .home .home-content .text-3{
-        font-size: 35px;
+
+     /* Adjust submenu styles */
+    .submenu {
+        position: static;
+        display: none;
+        background-color: transparent;
+        box-shadow: none;
+        padding: 5px 0;
     }
-    .home .home-content a{
-        font-size: 23px;
-        padding: 10px 30px;
+
+     /* Ensure the menu takes up the full height */
+    .navbar {
+        height: auto;
+        min-height: 60px; /* Adjust this value to match your navbar height */
     }
-    .max-width{
-        max-width: 930px;
+
+    .submenu li select {
+        margin-bottom: 10px;
     }
-    .about .about-content .column{
+
+    .home-description {
+        padding-top: 100px; /* Adjust this value as needed */
+    }
+
+    .home-description p {
+        margin-bottom: 20px; /* Increase space between description and button */
+    }
+
+    a.download-cv {
+        margin-top: 30px; /* Increase space above the button */
+    }
+
+    .home .home-image img {
+        margin-top: 110px; /* Adjust the image position if needed */
+    }
+
+    .about .about-content {
+        margin-bottom: 0; /* Remove any bottom margin */
+    }
+
+    .papers {
+        padding-top: 20px; /* Control spacing above papers */
+        margin-top: -50p; /* Remove any top margin */
+    }
+
+    .contact {
+        min-height: auto;
+        padding: 50px 0 0; /* Top padding only */
+        margin-bottom: 0; /* Remove bottom margin */
+    }
+
+    .contact .contact-content {
+        position: relative;
+        top: -2cm; /* Move the content upwards */
+        padding-bottom: 0; /* Remove bottom padding */
+    }
+
+    .contact .contact-content .column {
+        width: 100%;
+        margin-bottom: 30px; /* Space between columns */
+    }
+
+    .contact .contact-content .left,
+    .contact .contact-content .right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Align items to the left */
+        justify-content: flex-start;
+    }
+
+    .contact .left p,
+    .contact .right p {
+        max-width: 100%; /* Allow full width */
+        margin: 0; /* Remove auto margin */
+        text-align: justify; /* Justify the paragraph text */
+    }
+
+    .contact .right form .field,
+    .contact .right form .textarea {
         width: 100%;
     }
-    .about .about-content .left{
+
+    .contact .right form .fields {
+        flex-direction: column;
+    }
+
+    .contact .background {
+        height: 100%; /* Ensure background covers the entire section */
+        background-size: cover;
+        background-position: center;
+    }
+
+    footer {
+        margin-top: 0; /* Remove top margin from footer */
+        padding-top: 0; /* Remove padding from the top of the footer */
+    }
+
+    /* Adjust the last form element's margin */
+    .contact .right form .button-area {
+    margin-bottom: 0;
+    }
+
+    .contact .row {
         display: flex;
-        justify-content: center;
-        margin: 0 auto 60px;
+        justify-content: flex-start; /* Align items to the start */
+        align-items: flex-start; /* Align items to the top */
+        margin-bottom: 15px; /* Space between rows */
+        width: 100%; /* Ensure full width */
     }
-    .about .about-content .right{
-        flex: 100%;
+
+    .contact .row i {
+        font-size: 20px; /* Adjust icon size for mobile */
+        margin-right: 15px; /* Increase space between icon and text */
+        color: #333; /* Icon color */
+        min-width: 25px; /* Ensure icons have consistent width */
+        text-align: center; /* Center the icon */
     }
-    .papers .papers-content .card{
-        width: calc(50% - 10px);
-        margin-bottom: 20px;
+
+    .contact .info {
+        flex-grow: 1; /* Allow text to take up remaining space */
+        text-align: justify; /* Justify the text in the info section */
+    }
+
+    .contact .info .head {
+        font-weight: bold;
+        font-size: 16px; /* Slightly increase heading size */
+        margin-bottom: 5px;
+        text-align: left; /* Keep the heading left-aligned */
+    }
+
+    .contact .info .sub-title {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.4;
+        text-align: left; /* Change from justify to left alignment */
+        word-break: break-word; /* Allow long words to break */
+        hyphens: auto; /* Enable hyphenation for better text flow */
+    }
+
+    /* Add this new style for the address specifically */
+    .contact .info .sub-title.address {
+        white-space: pre-line; /* Preserve line breaks in the address */
+    }
+
+    .contact .row:last-child {
+        margin-bottom: 0;
     }
 }
 

@@ -32,46 +32,49 @@
     <i class="fas fa-angle-up"></i>
 </div>
 <nav class="navbar">
-    <ul class="menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li class="papers-menu">
-            <a href="#papers">Papers</a>
-            <!-- Submenu for year dropdown -->
-            <ul class="submenu">
-                <li>
-                    <select id="navbarYearDropdown" onchange="showPapers(this.value)">
-                        <option value="">Select a year</option>
-                        <option value="2024">2024</option>
-                        <option value="2023">2023</option>
-                        <option value="2022">2022</option>
-                        <option value="2021">2021</option>
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                        <option value="2015">2015</option>
-                        <option value="2014">2014</option>
-                        <option value="2013">2013</option>
-                    </select>
-                </li>
-            </ul>
-        </li>
-        <li><a href="#collaborations">Collaborations</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="menu-btn">
-        <i class="fas fa-bars"></i>
-    </div>
-</nav>
-
-<section class="home" id="home">
     <div class="max-width">
         <div class="logo">
             <span class="word1">Luca</span><br>
             <span class="word2">Florian</span>
         </div>
+        <ul class="menu">
+            <li><a href="#home" class="menu-btn">Home</a></li>
+            <li><a href="#about" class="menu-btn">About</a></li>
+            <li class="papers-menu">
+                <a href="#papers" class="menu-btn">Papers</a>
+                <!-- Submenu for year dropdown -->
+                <ul class="submenu">
+                    <li>
+                        <select id="navbarYearDropdown" onchange="showPapers(this.value)">
+                            <option value="">Select a year</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                        </select>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#collaborations" class="menu-btn">Collaborations</a></li>
+            <li><a href="#contact" class="menu-btn">Contact</a></li>
+        </ul>
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</nav>
+
+<section class="home" id="home">
+    <div class="max-width">
+
         <div class="home-content">
             <div class="home-content-container">
                 <div class="home-description">
@@ -401,7 +404,7 @@
                         <div class="info">
                             <div class="head">Address</div>
                             <div class="sub-title">University of Stellenbosch,
-                                Mathematics/Industrial Psychology Building
+                                Mathematics/Industrial Psychology Building,
                                 Merriman Street
                                 7600 Stellenbosch, SOUTH AFRICA,
                             </div>
