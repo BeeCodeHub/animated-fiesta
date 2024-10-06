@@ -408,7 +408,7 @@ a.download-cv:hover {
 }
 
 .about .text-and-stats {
-    margin-bottom: 200px;
+    margin-bottom: 400px;
 }
 
 .about .stats-container {
@@ -432,7 +432,7 @@ a.download-cv:hover {
     font-size: 18px;
     font-weight: 600;
     color: #333;
-    margin: 10px 90px;
+    margin: 20px 50px;
     opacity: 0;
     transition: opacity 0.5s ease-out;
 }
@@ -923,12 +923,12 @@ footer span a:hover {
         font-size: 24px;
         cursor: pointer;
         z-index: 101;
-        margin-right: -50px;
+        margin-right: -20px;
     }
 
     .navbar .menu {
         position: absolute;
-        top: 120px; /*I used this to fix the menu display*/
+        top: 120px;
         height: auto;
         max-height: calc(100vh - 60px);
         width: 40%;

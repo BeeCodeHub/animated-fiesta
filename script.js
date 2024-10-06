@@ -120,8 +120,10 @@ $(document).ready(function() {
     // Form submission
     document.querySelector('form').addEventListener('submit', function(e) {
         e.preventDefault();
-        document.getElementById('submissionTimeUTC').value = new Date().toISOString();
-        const userAnswer = document.getElementById('human_verification').value;
+
+//        document.getElementById('submissionTimeUTC').value = new Date().toISOString();
+//
+//        const userAnswer = document.getElementById('human_verification').value;
 
         if (parseInt(userAnswer) !== correctAnswer) {
             alert("Incorrect answer to the math question. Please try again.");
