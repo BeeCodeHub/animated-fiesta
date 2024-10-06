@@ -408,7 +408,7 @@ a.download-cv:hover {
 }
 
 .about .text-and-stats {
-    margin-bottom: 400px;
+    margin-bottom: 200px;
 }
 
 .about .stats-container {
@@ -432,7 +432,7 @@ a.download-cv:hover {
     font-size: 18px;
     font-weight: 600;
     color: #333;
-    margin: 20px 50px;
+    margin: 10px 90px;
     opacity: 0;
     transition: opacity 0.5s ease-out;
 }
@@ -876,12 +876,34 @@ footer span a:hover {
     }
 }
 
+/* Remove the background image on mobile screens */
+@media only screen and (max-width: 768px) {
+    .home {
+        background-image: none;
+        padding-bottom: 0; /* Ensure no padding at the bottom */
+        margin-bottom: 0;  /* Ensure no margin at the bottom */
+        min-height: auto;  /* Ensure the height adapts to content */
+        height: auto;      /* Remove any fixed height */
+    }
+
+    .home-description {
+        padding-bottom: 20px; /* Adjust this value to control space below description */
+    }
+
+    .home .home-image img {
+        margin-bottom: 0; /* Ensure no margin below the image */
+    }
+
+    .home .home-content {
+        margin-bottom: 0; /* Adjust this value as needed */
+    }
+}
+
 /* Media query for mobile devices */
 @media (max-width: 947px) {
     .navbar {
         padding: 10px 0px;
         height: auto;
-        min-height: 60px; /* Ensure a minimum height for the navbar */
     }
 
     .navbar .max-width {
@@ -901,14 +923,15 @@ footer span a:hover {
         font-size: 24px;
         cursor: pointer;
         z-index: 101;
+        margin-right: -50px;
     }
 
     .navbar .menu {
         position: absolute;
-        top: 60px;
+        top: 120px; /*I used this to fix the menu display*/
         height: auto;
         max-height: calc(100vh - 60px);
-        width: 50%;
+        width: 40%;
         right: 0;
         background: #111;
         text-align: left;
@@ -962,19 +985,26 @@ footer span a:hover {
     }
 
     .home-description {
-        padding-top: 100px;
+        padding-top: 80px; /* Reduced from 100px */
     }
 
     .home-description p {
-        margin-bottom: 20px;
+        margin-bottom: 15px; /* Reduced from 20px */
     }
 
     a.download-cv {
-        margin-top: 30px;
+        margin-top: 20px; /* Reduced from 30px */
+        margin-bottom: 0; /* Add this to control space below the link */
     }
 
     .home .home-image img {
-        margin-top: 110px;
+        margin-top: 80px; /* Reduced from 110px */
+        margin-bottom: 0; /* Add this to control space below the image */
+    }
+
+    /* If you have a container for both image and link, you can add this */
+    .home .home-content {
+        margin-bottom: 0; /* Adjust this value as needed */
     }
 
     .about {
