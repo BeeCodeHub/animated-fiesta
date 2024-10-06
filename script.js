@@ -53,7 +53,39 @@ $(document).ready(function() {
         }
     }).on('initialized.owl.carousel', function(event) {
         console.log('Collaborations Carousel initialized');
+        if ($(window).width() <= 947) {
+            createDots(event.item.count); // Initialize dots only on mobile
+        }
+    }).on('changed.owl.carousel', function(event) {
+        if ($(window).width() <= 947) {
+            updateDots(event.item.index); // Update dots on change only on mobile
+        }
     });
+
+    // Create pagination dots
+    function createDots(numSlides) {
+        console.log('Creating dots, numSlides:', numSlides);
+        const paginationDotsContainer = $('.pagination-dots');
+        paginationDotsContainer.empty(); // Clear existing dots
+
+        for (let i = 0; i < numSlides; i++) {
+            const dot = $('<span class="dot"></span>');
+            if (i === 0) {
+                dot.addClass('active'); // Set the first dot as active
+            }
+            dot.on('click', function() {
+                $("#collaborations-carousel").trigger('to.owl.carousel', [i]);
+            });
+            paginationDotsContainer.append(dot);
+        }
+    }
+
+    // Update active dot
+    function updateDots(activeIndex) {
+        console.log('Updating dots, activeIndex:', activeIndex);
+        $('.dot').removeClass('active'); // Remove active class from all dots
+        $('.dot').eq(activeIndex).addClass('active'); // Set the current index dot as active
+    }
 
     // Fibonacci function for anti-spam
     function fibonacci(n) {
