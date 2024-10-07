@@ -228,7 +228,7 @@ section .title::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('images/BackgroundImage.jpg');
+    background-image: url('images/BackgroundImage-overlay.png');
     background-position: -7.3cm -15.9cm;
     background-repeat: no-repeat;
     background-size: 150%;
@@ -267,40 +267,24 @@ section .title::after {
     line-height: 0.1em;
 }
 
+/* Updated flex properties */
 .home-content-container {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 20px;
+    align-items: center;  /* Center vertically within the full height of the section */
+    justify-content: space-between; /* Space between elements */
     padding: 0;
+    height: calc(70vh - 80px); /* Full viewport height minus the top padding */
 }
 
 .home-description {
-    flex: 2;
+    flex: 2;  /* Takes up 2 parts of the space */
     max-width: 50%;
     text-align: left;
-    margin: 0;
+    margin-top: 50px; /* Move the description down */
 }
 
 .home-description p {
     margin-bottom: 10px;
-}
-
-.home .home-image {
-    flex: 1;
-    max-width: 50%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-}
-
-.home .home-image img {
-    width: 350px;
-    height: 350px;
-    object-fit: cover;
-    border-radius: 50%;
-    filter: grayscale(120%) brightness(120%);
-    margin-top: 120px;
 }
 
 .home h1 {
@@ -876,29 +860,6 @@ footer span a:hover {
     }
 }
 
-/* Remove the background image on mobile screens */
-@media only screen and (max-width: 768px) {
-    .home {
-        background-image: none;
-        padding-bottom: 0; /* Ensure no padding at the bottom */
-        margin-bottom: 0;  /* Ensure no margin at the bottom */
-        min-height: auto;  /* Ensure the height adapts to content */
-        height: auto;      /* Remove any fixed height */
-    }
-
-    .home-description {
-        padding-bottom: 20px; /* Adjust this value to control space below description */
-    }
-
-    .home .home-image img {
-        margin-bottom: 0; /* Ensure no margin below the image */
-    }
-
-    .home .home-content {
-        margin-bottom: 0; /* Adjust this value as needed */
-    }
-}
-
 /* Media query for mobile devices */
 @media (max-width: 947px) {
     .navbar {
@@ -997,9 +958,10 @@ footer span a:hover {
         margin-bottom: 0; /* Add this to control space below the link */
     }
 
-    .home .home-image img {
-        margin-top: 80px; /* Reduced from 110px */
-        margin-bottom: 0; /* Add this to control space below the image */
+    /* Ensure background image is visible */
+    .home::before {
+        background-position: 40% center; /* Center the background */
+        background-size: 450%; /* Cover the entire area */
     }
 
     /* If you have a container for both image and link, you can add this */

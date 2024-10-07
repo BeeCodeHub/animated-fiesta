@@ -82,11 +82,6 @@
                     <a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&page=Florian_Luca&action=show-download-screen"
                        class="download-cv">Download CV</a>
                 </div>
-                <div class="home-image">
-                    <div class="image-container">
-                        <img src="images/New%20pic.jpeg" alt="Profile Picture">
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -136,7 +131,7 @@
         <h2 class="title">Papers</h2>
         <div class="year-selection">
             <h2>Select Year to View Papers</h2>
-            <select id="papersYearDropdown" onchange="showPapers(this.value)">
+            <select id="papersYearDropdown">
                 <option value="">Select a year</option>
                 <option value="2024">2024</option>
                 <option value="2023">2023</option>
@@ -447,6 +442,7 @@
                         <input type="text" id="human_verification" name="human_verification" placeholder="Your answer"
                                required>
                     </div>
+                    <input type="hidden" name="submissionTimeUTC" id="submissionTimeUTC">
                     <input type="hidden" name="submissionTimeLocal" id="submissionTimeLocal">
                     <div class="button-area">
                         <button type="submit">Send message</button>

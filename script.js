@@ -120,10 +120,13 @@ $(document).ready(function() {
     // Form submission
     document.querySelector('form').addEventListener('submit', function(e) {
         e.preventDefault();
+        console.log("Form submitted");
 
-//        document.getElementById('submissionTimeUTC').value = new Date().toISOString();
-//
-//        const userAnswer = document.getElementById('human_verification').value;
+        document.getElementById('submissionTimeUTC').value = new Date().toISOString();
+        document.getElementById('submissionTimeLocal').value = new Date().toLocaleString();
+
+        const userAnswer = document.getElementById('human_verification').value;
+        console.log("User answer:", userAnswer);
 
         if (parseInt(userAnswer) !== correctAnswer) {
             alert("Incorrect answer to the math question. Please try again.");
@@ -132,17 +135,20 @@ $(document).ready(function() {
         }
 
         var formData = new FormData(this);
+        console.log("Form data prepared:", formData);
         fetch(this.action, {
             method: this.method,
             body: formData,
             headers: { 'Accept': 'application/json' }
         }).then(response => {
+            console.log("Response received:", response);
             alert(response.ok ? "Thank you for your message! We will get back to you shortly." : "Oops! There was a problem submitting your form.");
             if (response.ok) {
                 this.reset();
                 correctAnswer = generateFibonacciQuestion();
             }
         }).catch(error => {
+            console.error('Error:', error);
             console.error('Error:', error);
             alert("Oops! There was a problem submitting your form.");
         });
@@ -189,10 +195,7 @@ $(document).ready(function() {
     function isInViewport(element) {
         const rect = element.getBoundingClientRect();
         return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            rect.top < window.innerHeight && rect.bottom > 0
         );
     }
 
