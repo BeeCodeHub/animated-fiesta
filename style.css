@@ -233,10 +233,9 @@ section .title::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("images/BackgroundImage-overlay.png");
-  background-position: -7.3cm -15.9cm;
+  background-image: url("images/BackgroundImage-overlay2.jpg");
   background-repeat: no-repeat;
-  background-size: 150%;
+  background-size: cover;
   filter: grayscale(100%) brightness(115%);
   z-index: 0;
 }
