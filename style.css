@@ -226,14 +226,13 @@ section .title::after {
   overflow: hidden;
 }
 
-.home::before {
-  content: "";
+.background-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("images/BackgroundImage-overlay2.jpg");
+  background-image: url("images/BackgroundImage-overlay13.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   filter: grayscale(100%) brightness(115%);
