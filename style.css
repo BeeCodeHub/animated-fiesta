@@ -226,7 +226,8 @@ section .title::after {
   overflow: hidden;
 }
 
-.background-container {
+.home::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -236,12 +237,17 @@ section .title::after {
   background-repeat: no-repeat;
   background-size: cover;
   filter: grayscale(100%) brightness(115%);
+  background-attachment: fixed;
   z-index: 0;
 }
 
 .home-content {
   position: relative;
   z-index: 1;
+  max-width: 1200px; /* Set a max width to prevent distortion */
+  margin: 0 auto; /* Center the content */
+  padding: 20px; /* Add some padding */
+
 }
 
 .logo {
@@ -277,14 +283,16 @@ section .title::after {
   align-items: center;
   justify-content: space-between;
   padding: 0;
-  height: calc(70vh - 80px);
+  height: 100%;
+  min-width: 300px;
 }
 
 .home-description {
   flex: 2;
   max-width: 50%;
   text-align: left;
-  margin-top: 50px;
+  margin-top: 250px;
+  overflow-wrap: break-word; /* Ensures words break properly */
 }
 
 .home-description p {
@@ -292,7 +300,7 @@ section .title::after {
 }
 
 .home h1 {
-  font-size: 2.5em;
+  font-size: 5vw;
   margin: 0;
   text-align: left;
   padding: 0;
@@ -300,7 +308,7 @@ section .title::after {
 }
 
 .home p {
-  font-size: 1.2em;
+  font-size: 2vw;;
   line-height: 1.6;
   margin: 0;
 }
@@ -848,6 +856,39 @@ footer span a:hover {
   display: none;
 }
 
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .home-content-container {
+    padding: 0 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-description {
+    max-width: 90%; /* Make it wider on smaller screens */
+    margin-top: 100px; /* Adjust margin for smaller screens */
+  }
+
+  .home h1 {
+    font-size: 2rem; /* Scale down font size */
+  }
+
+  .home p {
+    font-size: 1rem; /* Scale down font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .home h1 {
+    font-size: 1.8em;
+  }
+
+  a.download-cv {
+    padding: 8px 16px;
+    font-size: 0.9em;
+  }
+}
+
 /* responsive media query start */
 @media (max-width: 1104px) {
   .about .about-content .left img {
@@ -951,22 +992,36 @@ footer span a:hover {
   }
 
   .home-description {
-    padding-top: 80px;
-  }
-
-  .home-description p {
-    margin-bottom: 15px;
+    padding-top: 20px; /* Further reduce padding on mobile */
+    text-align: left; /* Keep text left-aligned */
+    flex: 1; /* Maintain proportionate space */
   }
 
   a.download-cv {
-    margin-top: 20px;
-    margin-bottom: 0;
+    margin-top: 15px; /* Adjust margin for the button */
+    padding: 10px 15px; /* Ensure button is easily clickable */
   }
 
-  /* Ensure background image is visible */
-  .home::before {
-    background-position: 40% center;
-    background-size: 450%;
+  .max-width {
+    padding: 0 15px; /* Add some padding on the sides */
+  }
+
+  .home {
+    height: auto; /* Allow height to adjust on mobile */
+  }
+
+  .home-content-container {
+    flex-direction: row; /* Keep elements in a row */
+    justify-content: flex-start; /* Align items to the left */
+    align-items: flex-start; /* Align items to the top */
+    width: 100%; /* Ensure full width */
+  }
+
+  .background-container {
+    background-size: cover; /* Use cover for better scaling */
+    background-position: center; /* Center the image */
+    flex: 1; /* Maintain proportionate space */
+    height: 100%; /* Ensure it fills the height of the container */
   }
 
   /* If you have a container for both image and link, you can add this */
