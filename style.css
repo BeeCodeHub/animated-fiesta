@@ -238,7 +238,7 @@ section .title::after {
   background-size: cover;
   filter: grayscale(100%) brightness(115%);
   background-attachment: fixed;
-  z-index: 0;
+  z-index: 1;
 }
 
 .home-content {
@@ -246,8 +246,7 @@ section .title::after {
   z-index: 1;
   max-width: 1200px; /* Set a max width to prevent distortion */
   margin: 0 auto; /* Center the content */
-  padding: 20px; /* Add some padding */
-
+  padding: 20px;
 }
 
 .logo {
@@ -277,7 +276,7 @@ section .title::after {
   line-height: 0.1em;
 }
 
-/* Updated flex properties */
+/* Flex properties */
 .home-content-container {
   display: flex;
   align-items: center;
@@ -289,28 +288,29 @@ section .title::after {
 
 .home-description {
   flex: 2;
-  max-width: 50%;
+  max-width: 50%; /* Limit the width of the description block */
   text-align: left;
-  margin-top: 250px;
-  overflow-wrap: break-word; /* Ensures words break properly */
-}
-
-.home-description p {
-  margin-bottom: 10px;
+  position: fixed; /* Fix the position of the description */
+  top: 45%; /* Adjust the vertical positioning */
+  left: 50%; /* Center horizontally */
+  transform: translate(-100%, -50%); /* Ensure perfect centering */
+  padding: 20px;
+  word-wrap: break-word; /* Ensure text wraps within the block */
+  overflow-wrap: break-word; /* Additional wrapping support */
 }
 
 .home h1 {
-  font-size: 5vw;
+  font-size: 3rem; /* Use rem units for font size to prevent huge text scaling */
   margin: 0;
   text-align: left;
   padding: 0;
-  width: 100%;
 }
 
 .home p {
-  font-size: 2vw;;
+  font-size: 2rem; /* Use rem units for paragraphs */
   line-height: 1.6;
   margin: 0;
+  max-width: 30vw; /* Restrict width to prevent long lines */
 }
 
 a.download-cv {
@@ -677,11 +677,8 @@ ul.paper-list .paper-details p {
 
 html,
 body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .contact {
@@ -864,19 +861,45 @@ footer span a:hover {
 }
 
 @media (max-width: 768px) {
-  .home-description {
-    max-width: 90%; /* Make it wider on smaller screens */
-    margin-top: 100px; /* Adjust margin for smaller screens */
+   .home {
+     height: auto; /* Ensure the height adjusts based on content */
+     margin: 0; /* Remove any default margins */
+     padding-bottom: 0; /* Remove any bottom padding */
+   }
+
+  .home::before {
+    background-attachment: fixed; /* Ensure background is fixed */
+    background-size: cover; /* Ensure background covers the entire area */
+    background-position: center; /* Center the background on mobile */
   }
 
-  .home h1 {
-    font-size: 2rem; /* Scale down font size */
+  .home-content-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: flex-start; /* Start content at the top */
+    height: 100vh; /* Full height of the viewport */
+    flex-direction: column;
+  }
+
+  .home-description {
+    max-width: 100%; /* Full width for mobile */
+    margin-top: -120px; /* Remove top margin */
+    padding: 10px 20px; /* Adjust padding for readability */
+    font-size: 1rem; /* Adjust font size for readability */
+    text-align: center; /* Center text horizontally */
   }
 
   .home p {
-    font-size: 1rem; /* Scale down font size */
+    font-size: 1rem; /* Scale down paragraph text */
+    margin-bottom: 15px; /* Add spacing below paragraph */
+  }
+
+  a.download-cv {
+    margin-top: 20px; /* Add margin above the button */
   }
 }
+
+
 
 @media (max-width: 480px) {
   .home h1 {
