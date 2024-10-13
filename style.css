@@ -288,29 +288,29 @@ section .title::after {
 
 .home-description {
   flex: 2;
-  max-width: 50%; /* Limit the width of the description block */
+  max-width: 50%;
   text-align: left;
-  position: fixed; /* Fix the position of the description */
-  top: 45%; /* Adjust the vertical positioning */
-  left: 50%; /* Center horizontally */
-  transform: translate(-100%, -50%); /* Ensure perfect centering */
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-100%, -50%);
   padding: 20px;
-  word-wrap: break-word; /* Ensure text wraps within the block */
-  overflow-wrap: break-word; /* Additional wrapping support */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .home h1 {
-  font-size: 3rem; /* Use rem units for font size to prevent huge text scaling */
+  font-size: 3rem;
   margin: 0;
   text-align: left;
   padding: 0;
 }
 
 .home p {
-  font-size: 2rem; /* Use rem units for paragraphs */
+  font-size: 2rem;
   line-height: 1.6;
   margin: 0;
-  max-width: 30vw; /* Restrict width to prevent long lines */
+  max-width: 30vw;
 }
 
 a.download-cv {
@@ -677,8 +677,8 @@ ul.paper-list .paper-details p {
 
 html,
 body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .contact {
@@ -861,45 +861,43 @@ footer span a:hover {
 }
 
 @media (max-width: 768px) {
-   .home {
-     height: auto; /* Ensure the height adjusts based on content */
-     margin: 0; /* Remove any default margins */
-     padding-bottom: 0; /* Remove any bottom padding */
-   }
+  .home {
+    height: auto;
+    margin: 0;
+    padding-bottom: 0;
+  }
 
   .home::before {
-    background-attachment: fixed; /* Ensure background is fixed */
-    background-size: cover; /* Ensure background covers the entire area */
-    background-position: center; /* Center the background on mobile */
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
   }
 
   .home-content-container {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: flex-start; /* Start content at the top */
-    height: 100vh; /* Full height of the viewport */
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
     flex-direction: column;
   }
 
   .home-description {
-    max-width: 100%; /* Full width for mobile */
-    margin-top: -120px; /* Remove top margin */
-    padding: 10px 20px; /* Adjust padding for readability */
-    font-size: 1rem; /* Adjust font size for readability */
-    text-align: center; /* Center text horizontally */
+    max-width: 100%;
+    margin-top: -120px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-align: center;
   }
 
   .home p {
-    font-size: 1rem; /* Scale down paragraph text */
-    margin-bottom: 15px; /* Add spacing below paragraph */
+    font-size: 1rem;
+    margin-bottom: 15px;
   }
 
   a.download-cv {
-    margin-top: 20px; /* Add margin above the button */
+    margin-top: 20px;
   }
 }
-
-
 
 @media (max-width: 480px) {
   .home h1 {
