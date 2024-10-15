@@ -1499,7 +1499,7 @@ footer span a:hover {
   .home-description {
     max-width: 90%; /* Limit width for better readability */
     position: relative; /* Allow it to scroll */
-    margin-top: 0; /* Remove margin to center vertically */
+    margin-top: 70px; /* Remove margin to center vertically */
     padding: 10px 20px;
     font-size: 0.9rem; /* Adjust font size for smaller screens */
     text-align: center; /* Center text */
