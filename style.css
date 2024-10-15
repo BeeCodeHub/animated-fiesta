@@ -852,6 +852,17 @@ footer span a:hover {
   }
 }
 
+/* For mobile screens */
+@media (max-width: 767px) {
+  .home {
+    background-image: url('images/BackgroundImage-overlay13.jpg');
+    background-attachment: fixed; /* Or use none */
+    background-position: center;
+    background-size: cover; /* Ensures it covers the screen without needing scroll */
+    overflow: hidden; /* Prevents scroll issues */
+  }
+}
+
 @media (max-width: 768px) {
   .home {
     background-image: url('images/BackgroundImage-overlay13.jpg');
