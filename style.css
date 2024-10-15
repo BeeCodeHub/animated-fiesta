@@ -914,9 +914,51 @@ footer span a:hover {
 }
 
 @media (max-width: 991px) {
-  .max-width {
-    padding: 0 50px;
-  }
+  .home {
+      height: auto; /* Allow height to adjust */
+      margin: 0;
+      padding: 20px 0; /* Add some padding for better spacing */
+    }
+
+    .home::before {
+      background-attachment: scroll; /* Allow background to scroll */
+      background-size: cover; /* Ensure it covers the area */
+      background-position: center; /* Center the image */
+    }
+
+    .home-content-container {
+      display: flex;
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      height: auto; /* Allow height to adjust */
+      flex-direction: column; /* Stack items vertically */
+      padding: 10px; /* Add some padding */
+    }
+
+    .home-description {
+      max-width: 90%; /* Limit width for better readability */
+      position: relative; /* Allow it to scroll */
+      margin-top: 20px; /* Add margin to move it lower */
+      padding: 10px 20px;
+      font-size: 0.9rem; /* Adjust font size for smaller screens */
+      text-align: center; /* Center text */
+    }
+
+    .home h1 {
+      font-size: 2rem; /* Adjust font size for mobile */
+      margin: 0; /* Remove margin */
+    }
+
+    .home p {
+      font-size: 0.9rem; /* Adjust font size for mobile */
+      margin-bottom: 15px; /* Space below paragraph */
+    }
+
+    a.download-cv {
+      margin-top: 15px; /* Space above button */
+      padding: 8px 16px; /* Adjust button padding */
+      font-size: 0.9rem; /* Adjust button font size */
+    }
 }
 
 /* Media query for mobile devices */
@@ -1432,17 +1474,100 @@ footer span a:hover {
   }
 }
 
+@media (max-width: 578px) {
+  .home {
+    height: auto; /* Allow height to adjust */
+    margin: 0;
+    padding: 20px 0; /* Add some padding for better spacing */
+  }
+
+  .home::before {
+    background-attachment: scroll; /* Allow background to scroll */
+    background-size: cover; /* Ensure it covers the area */
+    background-position: center; /* Center the image */
+  }
+
+  .home-content-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: auto; /* Allow height to adjust */
+    flex-direction: column; /* Stack items vertically */
+    padding: 10px; /* Add some padding */
+  }
+
+  .home-description {
+    max-width: 90%; /* Limit width for better readability */
+    position: relative; /* Allow it to scroll */
+    margin-top: 0; /* Remove margin to center vertically */
+    padding: 10px 20px;
+    font-size: 0.9rem; /* Adjust font size for smaller screens */
+    text-align: center; /* Center text */
+  }
+
+  .home h1 {
+    font-size: 2rem; /* Adjust font size for mobile */
+    margin: 0; /* Remove margin */
+  }
+
+  .home p {
+    font-size: 0.9rem; /* Adjust font size for mobile */
+    margin-bottom: 15px; /* Space below paragraph */
+  }
+
+  a.download-cv {
+    margin-top: 15px; /* Space above button */
+    padding: 8px 16px; /* Adjust button padding */
+    font-size: 0.9rem; /* Adjust button font size */
+  }
+}
+
 @media (max-width: 500px) {
-  .home .home-content .text-2 {
-    font-size: 50px;
-  }
-  .home .home-content .text-3 {
-    font-size: 25px;
-  }
-  .home .home-content a {
-    font-size: 18px;
-    padding: 8px 20px;
-  }
+  .home {
+      height: auto; /* Allow height to adjust */
+      margin: 0;
+      padding: 20px 0; /* Add some padding for better spacing */
+    }
+
+    .home::before {
+      background-attachment: scroll; /* Allow background to scroll */
+      background-size: cover; /* Ensure it covers the area */
+      background-position: center; /* Center the image */
+    }
+
+    .home-content-container {
+      display: flex;
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      height: auto; /* Allow height to adjust */
+      flex-direction: column; /* Stack items vertically */
+      padding: 10px; /* Add some padding */
+    }
+
+    .home-description {
+      max-width: 90%; /* Limit width for better readability */
+      position: relative; /* Allow it to scroll */
+      margin-top: 20px; /* Add margin to move it lower */
+      padding: 10px 20px;
+      font-size: 0.9rem; /* Adjust font size for smaller screens */
+      text-align: center; /* Center text */
+    }
+
+    .home h1 {
+      font-size: 2rem; /* Adjust font size for mobile */
+      margin: 0; /* Remove margin */
+    }
+
+    .home p {
+      font-size: 0.9rem; /* Adjust font size for mobile */
+      margin-bottom: 15px; /* Space below paragraph */
+    }
+
+    a.download-cv {
+      margin-top: 15px; /* Space above button */
+      padding: 8px 16px; /* Adjust button padding */
+      font-size: 0.9rem; /* Adjust button font size */
+    }
   .about .about-content .text {
     font-size: 20px;
   }
