@@ -240,8 +240,8 @@ section .title::after {
 .home-content {
   position: relative;
   z-index: 1;
-  max-width: 1200px; /* Set a max width to prevent distortion */
-  margin: 0 auto; /* Center the content */
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
 }
 
@@ -875,7 +875,7 @@ footer span a:hover {
   .home-description {
     max-width: 60%;
     position: relative;
-    margin-top: -130px;
+    margin-top: 20px;
     padding: 10px 20px;
     font-size: 1rem;
     text-align: center;
@@ -1524,50 +1524,50 @@ footer span a:hover {
 
 @media (max-width: 500px) {
   .home {
-      height: auto; /* Allow height to adjust */
-      margin: 0;
-      padding: 20px 0; /* Add some padding for better spacing */
-    }
+  height: auto; /* Allow height to adjust */
+    margin: 0;
+    padding: 20px 0; /* Add some padding for better spacing */
+  }
 
-    .home::before {
-      background-attachment: scroll; /* Allow background to scroll */
-      background-size: cover; /* Ensure it covers the area */
-      background-position: center; /* Center the image */
-    }
+  .home::before {
+    background-attachment: scroll; /* Allow background to scroll */
+    background-size: cover; /* Ensure it covers the area */
+    background-position: center; /* Center the image */
+  }
 
-    .home-content-container {
-      display: flex;
-      justify-content: center; /* Center horizontally */
-      align-items: center; /* Center vertically */
-      height: auto; /* Allow height to adjust */
-      flex-direction: column; /* Stack items vertically */
-      padding: 10px; /* Add some padding */
-    }
+  .home-content-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: auto; /* Allow height to adjust */
+    flex-direction: column; /* Stack items vertically */
+    padding: 10px; /* Add some padding */
+  }
 
-    .home-description {
-      max-width: 90%; /* Limit width for better readability */
-      position: relative; /* Allow it to scroll */
-      margin-top: 20px; /* Add margin to move it lower */
-      padding: 10px 20px;
-      font-size: 0.9rem; /* Adjust font size for smaller screens */
-      text-align: center; /* Center text */
-    }
+  .home-description {
+    max-width: 90%; /* Limit width for better readability */
+    position: relative; /* Allow it to scroll */
+    margin-top: 20px; /* Add margin to move it lower */
+    padding: 10px 20px;
+    font-size: 0.9rem; /* Adjust font size for smaller screens */
+    text-align: center; /* Center text */
+  }
 
-    .home h1 {
-      font-size: 2rem; /* Adjust font size for mobile */
-      margin: 0; /* Remove margin */
-    }
+  .home h1 {
+    font-size: 2rem; /* Adjust font size for mobile */
+    margin: 0; /* Remove margin */
+  }
 
-    .home p {
-      font-size: 0.9rem; /* Adjust font size for mobile */
-      margin-bottom: 15px; /* Space below paragraph */
-    }
+  .home p {
+    font-size: 0.9rem; /* Adjust font size for mobile */
+    margin-bottom: 15px; /* Space below paragraph */
+  }
 
-    a.download-cv {
-      margin-top: 15px; /* Space above button */
-      padding: 8px 16px; /* Adjust button padding */
-      font-size: 0.9rem; /* Adjust button font size */
-    }
+  a.download-cv {
+    margin-top: 15px; /* Space above button */
+    padding: 8px 16px; /* Adjust button padding */
+    font-size: 0.9rem; /* Adjust button font size */
+  }
   .about .about-content .text {
     font-size: 20px;
   }

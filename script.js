@@ -190,33 +190,33 @@ $(document).ready(function () {
     errorMessage.style.display = status ? "block" : "none";
   }
 
-  // Year dropdown change handler
-  function handleYearDropdownChange(event) {
-    var selectedYear = event.target.value;
-    showPapers(selectedYear);
+   // Year dropdown change handler
+   function handleYearDropdownChange(event) {
+     var selectedYear = event.target.value;
+     showPapers(selectedYear);
 
-    if (selectedYear) {
-      const papersSection = document.getElementById("papers" + selectedYear);
-      if (papersSection) {
-        $("html, body").animate(
-          { scrollTop: $(papersSection).offset().top - 150 },
-          1000,
-        );
-      }
-    }
-  }
+     if (selectedYear) {
+       const papersSection = document.getElementById("papers" + selectedYear);
+       if (papersSection) {
+         $("html, body").animate(
+           { scrollTop: $(papersSection).offset().top - 150 },
+           1000,
+         );
+       }
+     }
+   }
 
-  $("#navbarYearDropdown, #papersYearDropdown, #yearDropdown").change(
-    handleYearDropdownChange,
-  );
+   $("#navbarYearDropdown, #papersYearDropdown, #yearDropdown").change(
+     handleYearDropdownChange,
+   );
 
-  function showPapers(year) {
-    console.log("showPapers called with year:", year);
-    $(".year-section").removeClass("active");
-    if (year) $("#papers" + year).addClass("active");
-  }
+   function showPapers(year) {
+     console.log("showPapers called with year:", year);
+     $(".year-section").removeClass("active");
+     if (year) $("#papers" + year).addClass("active");
+   }
 
-  showPapers("");
+   showPapers("");
 
   // Stats animation
   const aboutSection = document.querySelector(".about");
