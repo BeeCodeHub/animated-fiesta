@@ -851,47 +851,506 @@ footer span a:hover {
   }
 }
 
-@media (max-width: 768px) {
+/* Media query for mobile devices */
+@media (max-width: 947px) {
+  .navbar {
+    padding: 5px 0px;
+    height: auto;
+  }
+
+  .navbar .max-width {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    position: static;
+    margin-left: -70px; /* This could cause issues, consider removing or adjusting */
+    font-size: 1.2em;
+  }
+
+  .menu-btn {
+    display: block;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 101;
+    margin-right: 0;
+  }
+
+  .navbar .menu {
+    position: absolute;
+    top: 120px;
+    height: auto;
+    max-height: calc(100vh - 60px);
+    width: 40%;
+    right: 0;
+    background: #111;
+    text-align: left;
+    padding: 0;
+    transition: all 0.3s ease;
+    overflow-y: auto; /* This enables scrolling if the menu exceeds the viewport height */
+    display: none;
+    flex-direction: column;
+  }
+
+  .navbar .menu.active {
+    display: flex;
+  }
+
+  .navbar .menu li {
+    margin: 10px 0;
+    padding: 10px 20px;
+  }
+
+  .navbar .menu li a {
+    display: block;
+    font-size: 16px;
+    padding: 0 0;
+  }
+
+  .navbar .menu li:first-child {
+    margin-top: 0;
+  }
+
+  .navbar .menu li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Adjust submenu styles */
+  .submenu {
+    position: static;
+    display: none;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 5px 0 5px 10px;
+  }
+
+  .submenu li {
+    margin: 5px 0;
+  }
+
+  .submenu li select {
+    margin-bottom: 5px;
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .home-description {
+    padding-top: 20px;
+    text-align: left;
+    flex: 1;
+  }
+
+  a.download-cv {
+    margin-top: 15px;
+    padding: 10px 15px;
+  }
+
+  .max-width {
+    padding: 0 15px;
+  }
+
   .home {
     height: auto;
-    margin: 0;
+  }
+
+  .home-content-container {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .background-container {
+    background-size: cover;
+    background-position: center;
+    flex: 1;
+    height: 100%;
+  }
+
+  /* If you have a container for both image and link, you can add this */
+  .home .home-content {
+    margin-bottom: 0;
+  }
+
+  .about {
+    padding-top: 30px;
+    padding-bottom: 0;
+    position: relative;
+    overflow: visible;
+  }
+
+  .about::before {
+    height: 65%;
+  }
+
+  .about .about-content {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 10px;
+  }
+
+  .about .column.left {
+    margin-bottom: 0;
+  }
+
+  .about .column.left p {
+    margin-bottom: 10px;
+  }
+
+  .about .column.left .read-more {
+    display: inline-block;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: -550px;
+    padding: 8px 16px;
+    background-color: #19747e;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+  }
+
+  .about .stats-container {
+    position: relative;
+    margin-top: 0;
+    padding-top: 20px;
+    padding-left: 0;
+    padding-right: 0;
+    z-index: 1;
+  }
+
+  .about .stats-card {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 5px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .about .stat-item {
+    flex: 0 0 auto;
+    width: auto;
+    margin-right: 20px;
+    text-align: center;
+  }
+
+  .about .stat-item:last-child {
+    margin-right: 0;
+  }
+
+  .about .stat-item span.stat-number {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  /* Ensure the stats container aligns with other content */
+  .about .max-width {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .papers {
+    padding-top: 10px;
+    padding-bottom: 0;
+    margin-bottom: -20px;
+  }
+
+  .papers .title {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  .papers .paper-selection {
+    margin-bottom: 0;
+  }
+
+  /* Awards & Features Section */
+  .awards-features-wrapper {
+    margin-top: -20px;
+    padding-top: 0;
+    margin-bottom: 0;
+  }
+
+  /* Target the first element inside awards-features-wrapper */
+  .awards-features-wrapper > *:first-child {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  /* If there are separate containers for awards and features */
+  .awards-container,
+  .features-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  /* Adjust the title of awards and features if they have separate titles */
+  .awards-title,
+  .features-title {
+    margin-top: -9000px;
+    margin-bottom: 5px;
+    font-size: 18px;
+  }
+
+  /* Target the last child of awards-features-wrapper to remove extra space */
+  .awards-features-wrapper > *:last-child {
+    margin-bottom: 0;
     padding-bottom: 0;
   }
 
-  .home::before {
-    background-attachment: scroll;
+  .awards-features-carousel .card {
+    flex: 0 0 calc(33% - 10px);
+    margin: 0 5px;
+  }
+
+  /* Card Image (Circle) */
+  .awards-features-carousel .card a {
+    width: 70px;
+    height: 70px;
+  }
+
+  /* Card Image */
+  .awards-features-carousel .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Card Text */
+  .awards-features-carousel .text {
+    font-size: 10px;
+    margin-top: 5px;
+  }
+
+  .pagination-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  .dot {
+    height: 8px;
+    width: 8px;
+    margin: 0 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .dot.active {
+    background-color: #19747e;
+  }
+
+  .collaborations {
+    padding-top: 30px;
+    padding-bottom: 20px;
+  }
+
+  .collaborations .owl-item {
+    width: 90vw !important;
+  }
+
+  .collaborations .card {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .collaborations .card .text {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .collaborations .text {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 5px 0;
+  }
+
+  .collaborations .card p {
+    margin-bottom: 20px;
+  }
+
+  .collaborations .card a {
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  .collaborations .card p {
+    margin-bottom: 20px;
+  }
+
+  .collaborations .card a {
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  .collaborations .owl-stage {
+    display: flex;
+  }
+
+  .collaborations .owl-nav {
+    display: none;
+  }
+
+  .contact {
+    min-height: auto;
+    padding: 20px 0 0;
+    margin-bottom: 0;
+  }
+
+  .contact .contact-content {
+    position: relative;
+    top: -3cm;
+    padding-bottom: 0;
+  }
+
+  .contact .contact-content .column {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .contact .contact-content .left,
+  .contact .contact-content .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .contact .left p,
+  .contact .right p {
+    max-width: 100%;
+    margin: 0;
+    text-align: justify;
+  }
+
+  .contact .right form .field,
+  .contact .right form .textarea {
+    width: 100%;
+  }
+
+  .contact .right form .fields {
+    flex-direction: column;
+  }
+
+  .contact .background {
+    height: 100%;
     background-size: cover;
     background-position: center;
   }
 
-  .home-content-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100vh;
-    flex-direction: column;
+  footer {
+    margin-top: 0;
+    padding-top: 0;
   }
 
-  .home-description {
-    max-width: 60%;
-    position: relative;
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1rem;
+  /* Adjust the last form element's margin */
+  .contact .right form .button-area {
+    margin-bottom: 0;
+  }
+
+  .contact .row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  .contact .row i {
+    font-size: 20px;
+    margin-right: 15px;
+    color: #333;
+    min-width: 25px;
     text-align: center;
   }
 
-  .home p {
-    font-size: 1rem;
-    margin-bottom: 15px;
+  .contact .info {
+    flex-grow: 1;
+    text-align: justify;
   }
 
-  a.download-cv {
+  .contact .info .head {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+
+  .contact .info .sub-title {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+    text-align: left;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  /* Add this new style for the address specifically */
+  .contact .info .sub-title.address {
+    white-space: pre-line;
+  }
+
+  .contact .row:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Adjust home section */
+  .home {
+    padding-bottom: 30px;
+  }
+
+  .home-description {
+    padding-top: 50px;
+  }
+
+  .home .home-image img {
+    margin-top: 30px;
+  }
+
+  /* Adjust about section */
+  .about {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .about .about-content {
+    margin-bottom: 0;
+  }
+
+  /* Adjust papers section */
+  .papers {
+    padding-top: 30px;
+    margin-top: 0;
+  }
+
+  .papers .title {
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+
+  .awards-features-wrapper {
     margin-top: 20px;
+    padding-top: 20px;
   }
 }
 
 @media (max-width: 480px) {
+
+  .max-width {
+    padding: 0 23px;
+  }
   .home h1 {
     font-size: 1.8em;
   }
@@ -962,61 +1421,11 @@ footer span a:hover {
 }
 
 @media (max-width: 768px) {
-  .navbar {
-    padding: 10px 0;
-    height: auto;
-  }
-
-  .navbar .max-width {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 15px;
-  }
 
   .logo {
     position: static;
     margin-left: 0;
     font-size: 1.5em;
-  }
-
-  .menu-btn {
-    display: block;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 101;
-    margin-right: 10px;
-  }
-
-  .navbar .menu {
-    position: absolute;
-    top: 100%;
-    height: auto;
-    max-height: calc(100vh - 60px);
-    width: 80%;
-    right: 0;
-    background: #111;
-    text-align: left;
-    padding: 0;
-    transition: all 0.3s ease;
-    overflow-y: auto;
-    display: none;
-    flex-direction: column;
-  }
-
-  .navbar .menu.active {
-    display: flex;
-  }
-
-  .navbar .menu li {
-    margin: 10px 0;
-    padding: 0 20px;
-  }
-
-  .navbar .menu li a {
-    display: block;
-    font-size: 16px;
-    padding: 8px 0;
   }
 
   .home-description {
@@ -1122,34 +1531,34 @@ footer span a:hover {
 @media (max-width: 375px) {
   /* Adjustments for the home section */
   .home-content-container {
-    display: flex; /* Enable flexbox */
-    flex-direction: column; /* Stack elements vertically */
-    justify-content: flex-start; /* Start from the top */
-    align-items: center; /* Center items horizontally */
-    height: auto; /* Full viewport height */
-    padding: 20px 0; /* Add padding to top and bottom */
-    margin-top: 60px; /* Move the entire content down */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+    padding: 20px 0;
+    margin-top: 60px;
   }
 
   .home-description {
-    text-align: left; /* Center-align text for better visibility */
-    margin-bottom: 20px; /* Space from the bottom */
-    font-size: 14px; /* Adjust font size for better fit */
-    line-height: 1.4; /* Adjust line height for readability */
-    width: 30vh; /* Allow it to fit within the container */
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.4;
+    width: 30vh;
   }
 
   .home-title {
-    font-size: 24px; /* Smaller title font size */
-    text-align: left; /* Center the title */
-    margin: 0; /* Remove any margin */
+    font-size: 24px;
+    text-align: left;
+    margin: 0;
   }
 
   .download-cv-button {
-    font-size: 12px; /* Adjust button text size */
-    padding: 10px 15px; /* Adjust button padding */
-    width: 100%; /* Make button full width */
-    margin-top: 10px; /* Add space above the button */
+    font-size: 12px;
+    padding: 10px 15px;
+    width: 100%;
+    margin-top: 10px;
   }
 }
 
