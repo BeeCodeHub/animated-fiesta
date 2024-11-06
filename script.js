@@ -48,30 +48,28 @@ $(document).ready(function () {
     document.getElementById("logo").classList.add("fixed-logo");
   }
 
-  window.onload = function() {
-    $("#collaborations-carousel").owlCarousel({
-      loop: false,
-      margin: 0,
-      nav: true,
-      items: 4,
-      autoplay: false,
-      autoplayTimeout: 2000,
-      responsive: {
-        0: { items: 1 },
-        600: { items: 2 },
-        1000: { items: 4 },
-      },
-    }).on("initialized.owl.carousel", function (event) {
-      console.log("Collaborations Carousel initialized");
-      if ($(window).width() <= 947) {
-        createDots(event.item.count); // Initialize dots only on mobile
-      }
-    }).on("changed.owl.carousel", function (event) {
-      if ($(window).width() <= 947) {
-        updateDots(event.item.index); // Update dots on change only on mobile
-      }
-    });
-  };
+  $("#collaborations-carousel").owlCarousel({
+    loop: false,
+    margin: 0,
+    nav: true,
+    items: 4,
+    autoplay: false,
+    autoplayTimeout: 2000,
+    responsive: {
+      0: { items: 1 },
+      600: { items: 2 },
+      1000: { items: 4 },
+    },
+  }).on("initialized.owl.carousel", function (event) {
+    console.log("Collaborations Carousel initialized");
+    if ($(window).width() <= 947) {
+      createDots(event.item.count); // Initialize dots only on mobile
+    }
+  }).on("changed.owl.carousel", function (event) {
+    if ($(window).width() <= 947) {
+      updateDots(event.item.index); // Update dots on change only on mobile
+    }
+  });
 
   // Create pagination dots
   function createDots(numSlides) {
