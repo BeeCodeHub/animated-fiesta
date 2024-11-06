@@ -3,8 +3,8 @@ $(document).ready(function () {
 
   // Initialize the collaborations carousel after a small delay
   setTimeout(function () {
-    initializeCollaborationsCarousel(); // Initialize the carousel after a delay
-  }, 100); // 100ms delay ensures the page content is fully ready
+    initializeCollaborationsCarousel();
+  }, 100);
 
   // Navbar sticky and logo hide on scroll
   $(window).scroll(function () {
@@ -116,20 +116,24 @@ $(document).ready(function () {
     if (year) $("#papers" + year).addClass("active");
   }
 
-  // Stats animation
+  // Stats animation when in viewport
   const aboutSection = document.querySelector(".about");
   function showStats() {
     if (isInViewport(aboutSection)) {
-      setTimeout(() => {
-        $(".stats-container, .stats-card, .stat-item").addClass("show");
-      }, 3000);
+      $(".stats-container, .stats-card, .stat-item").addClass("show");
       window.removeEventListener("scroll", showStats);
     }
   }
-  
+
   window.addEventListener("scroll", showStats);
+
+  // Trigger stats immediately if already in view (helps on page load)
+  if (isInViewport(aboutSection)) {
+    showStats();
+  }
 });
 
+// Helper to check if an element is in viewport
 function isInViewport(element) {
   const rect = element.getBoundingClientRect();
   return rect.top < window.innerHeight && rect.bottom > 0;
