@@ -1,6 +1,11 @@
 $(document).ready(function () {
   console.log("Document ready!");
 
+  // Initialize the collaborations carousel after a small delay
+  setTimeout(function () {
+    initializeCollaborationsCarousel(); // Initialize the carousel after a delay
+  }, 100); // 100ms delay ensures the page content is fully ready
+
   // Navbar sticky and logo hide on scroll
   $(window).scroll(function () {
     $(".navbar").toggleClass("sticky", this.scrollY > 20);
@@ -46,59 +51,6 @@ $(document).ready(function () {
   // Fixed logo for home page
   if (window.location.href.match(/\/(index.html|home)?$/)) {
     document.getElementById("logo").classList.add("fixed-logo");
-  }
-
-  // Initialize the collaborations carousel
-  initializeCollaborationsCarousel(); // Carousel initialization
-
-  // Initialize the collaborations carousel
-  function initializeCollaborationsCarousel() {
-    $("#collaborations-carousel").owlCarousel({
-      loop: false,
-      margin: 0,
-      nav: true,
-      items: 4,
-      autoplay: false,
-      autoplayTimeout: 2000,
-      responsive: {
-        0: { items: 1 },
-        600: { items: 2 },
-        1000: { items: 4 },
-      },
-    })
-    .on("initialized.owl.carousel", function (event) {
-      console.log("Collaborations Carousel initialized");
-      if ($(window).width() <= 947) {
-        createDots(event.item.count);
-      }
-    })
-    .on("changed.owl.carousel", function (event) {
-      if ($(window).width() <= 947) {
-        updateDots(event.item.index);
-      }
-    });
-  }
-
-  // Create pagination dots
-  function createDots(numSlides) {
-    console.log("Creating dots, numSlides:", numSlides);
-    const paginationDotsContainer = $(".pagination-dots");
-    paginationDotsContainer.empty();
-
-    for (let i = 0; i < numSlides; i++) {
-      const dot = $('<span class="dot"></span>');
-      if (i === 0) dot.addClass("active");
-      dot.on("click", function () {
-        $("#collaborations-carousel").trigger("to.owl.carousel", [i]);
-      });
-      paginationDotsContainer.append(dot);
-    }
-  }
-
-  // Update active dot
-  function updateDots(activeIndex) {
-    $(".dot").removeClass("active");
-    $(".dot").eq(activeIndex).addClass("active");
   }
 
   // Fibonacci anti-spam question
@@ -181,4 +133,57 @@ $(document).ready(function () {
 function isInViewport(element) {
   const rect = element.getBoundingClientRect();
   return rect.top < window.innerHeight && rect.bottom > 0;
+}
+
+// Initialize the collaborations carousel
+function initializeCollaborationsCarousel() {
+  console.log("Initializing Collaborations Carousel");
+
+  // Make sure Owl Carousel is initialized properly
+  $("#collaborations-carousel").owlCarousel({
+    loop: false,
+    margin: 0,
+    nav: true,
+    items: 4,
+    autoplay: false,
+    autoplayTimeout: 2000,
+    responsive: {
+      0: { items: 1 },
+      600: { items: 2 },
+      1000: { items: 4 },
+    },
+  })
+  .on("initialized.owl.carousel", function (event) {
+    console.log("Collaborations Carousel initialized");
+    if ($(window).width() <= 947) {
+      createDots(event.item.count);
+    }
+  })
+  .on("changed.owl.carousel", function (event) {
+    if ($(window).width() <= 947) {
+      updateDots(event.item.index);
+    }
+  });
+}
+
+// Create pagination dots
+function createDots(numSlides) {
+  console.log("Creating dots, numSlides:", numSlides);
+  const paginationDotsContainer = $(".pagination-dots");
+  paginationDotsContainer.empty();
+
+  for (let i = 0; i < numSlides; i++) {
+    const dot = $('<span class="dot"></span>');
+    if (i === 0) dot.addClass("active");
+    dot.on("click", function () {
+      $("#collaborations-carousel").trigger("to.owl.carousel", [i]);
+    });
+    paginationDotsContainer.append(dot);
+  }
+}
+
+// Update active dot
+function updateDots(activeIndex) {
+  $(".dot").removeClass("active");
+  $(".dot").eq(activeIndex).addClass("active");
 }
