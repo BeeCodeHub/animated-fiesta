@@ -48,9 +48,8 @@ $(document).ready(function () {
     document.getElementById("logo").classList.add("fixed-logo");
   }
 
-  // Collaborations carousel
-  $("#collaborations-carousel")
-    .owlCarousel({
+  $(window).on('load', function() {
+    $("#collaborations-carousel").owlCarousel({
       loop: false,
       margin: 0,
       nav: true,
@@ -74,6 +73,7 @@ $(document).ready(function () {
         updateDots(event.item.index); // Update dots on change only on mobile
       }
     });
+  });
 
   // Create pagination dots
   function createDots(numSlides) {
