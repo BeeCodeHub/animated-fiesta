@@ -1,31 +1,575 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maintenance</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            font-family: Arial, sans-serif;
-            background-color: #f3f4f6;
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: #666;
-        }
-    </style>
-</head>
-<body>
-    <div>
-        <h1>We're Currently Under Maintenance</h1>
-        <p>We'll be back shortly! Thank you for your patience.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <meta
+      name="description"
+      content="Personal portfolio of Professor Florian Luca, a research professor specializing in number theory."
+    />
+    <meta
+      name="keywords"
+      content="Florian Luca, mathematics, number theory, research professor, University of Stellenbosch"
+    />
+    <meta property="og:title" content="Professor Florian Luca - Portfolio" />
+    <meta
+      property="og:description"
+      content="Personal portfolio of Professor Florian Luca, specializing in number theory and related research."
+    />
+    <meta property="og:image" content="images/New%20pic.jpeg" />
+    <meta property="og:url" content="URL_of_your_site" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Professor Florian Luca - Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Personal portfolio of Professor Florian Luca, specializing in number theory and related research."
+    />
+    <meta name="twitter:image" content="images/New%20pic.jpeg" />
+    <title>Personal Portfolio Website</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  </head>
+  <body style="background-image: none');">
+    <div class="scroll-up-btn">
+      <i class="fas fa-angle-up"></i>
     </div>
-</body>
+    <nav class="navbar">
+      <div class="max-width">
+        <div class="logo">
+          <span class="word1">Luca</span><br />
+          <span class="word2">Florian</span>
+        </div>
+        <ul class="menu">
+          <li><a href="#home" class="menu-btn">Home</a></li>
+          <li><a href="#about" class="menu-btn">About</a></li>
+          <li class="papers-menu">
+            <a href="#papers" class="menu-btn">Papers</a>
+            <!-- Submenu for year dropdown -->
+            <ul class="submenu">
+              <li>
+                <select
+                  id="navbarYearDropdown"
+                  onchange="showPapers(this.value)"
+                >
+                  <option value="">Select a year</option>
+                  <option value="2024">2024</option>
+                  <option value="2023">2023</option>
+                  <option value="2022">2022</option>
+                  <option value="2021">2021</option>
+                  <option value="2020">2020</option>
+                  <option value="2019">2019</option>
+                  <option value="2018">2018</option>
+                  <option value="2017">2017</option>
+                  <option value="2016">2016</option>
+                  <option value="2015">2015</option>
+                  <option value="2014">2014</option>
+                  <option value="2013">2013</option>
+                </select>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#collaborations" class="menu-btn">Collaborations</a></li>
+          <li><a href="#contact" class="menu-btn">Contact</a></li>
+        </ul>
+        <div class="menu-btn">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+
+    <section class="home" id="home">
+      <div class="max-width">
+        <div class="home-content">
+          <div class="home-content-container">
+            <div class="home-description">
+              <p>
+                An A-Rated Research Professor | Problem Solver | Number
+                Theorist.
+              </p>
+              <a
+                href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&page=Florian_Luca&action=show-download-screen"
+                class="download-cv"
+                >Download CV</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="max-width">
+        <h2 class="title">About me</h2>
+        <div class="about-content">
+          <div class="text-and-stats">
+            <div class="column left">
+              <p>
+                I am a mathematician from Romania who focuses on number theory,
+                particularly Diophantine equations, linear recurrences, and the
+                distribution of arithmetic function values. I have contributed
+                to proving that irrational automatic numbers are transcendental
+                and to proving Erdős' conjecture on the intersection of the
+                Euler Totient function and the sum of divisors function.
+              </p>
+              <a
+                href="https://en.wikipedia.org/wiki/Florian_Luca"
+                class="read-more"
+                target="_blank"
+                >Read more</a
+              >
+            </div>
+          </div>
+          <div class="stats-container">
+            <div class="stats-card">
+              <div class="stat-item">
+                📝 <span class="stat-number">8000+</span> Citations
+              </div>
+              <div class="stat-item">
+                📚 <span class="stat-number">500+</span> Publications
+              </div>
+              <div class="stat-item">
+                ✍️ <span class="stat-number">350+</span> Co-Authors
+              </div>
+              <div class="stat-item">
+                🏋️ <span class="stat-number">25+</span> Years of Experience
+              </div>
+              <div class="stat-item">
+                🤝 <span class="stat-number">10+</span> Collaborations
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="papers" id="papers">
+      <div class="max-width">
+        <h2 class="title">Papers</h2>
+        <div class="year-selection">
+          <h2>Select Year to View Papers</h2>
+          <select id="papersYearDropdown">
+            <option value="">Select a year</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+            <option value="2015">2015</option>
+            <option value="2014">2014</option>
+            <option value="2013">2013</option>
+          </select>
+        </div>
+
+        <div class="year-section" id="papers2024">
+          <h2>2024</h2>
+          <ul class="paper-list">
+            <li>
+              <a href="2024%20Papers/index.html" target="_blank"
+                >See Papers of 2024</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="year-section" id="papers2023">
+          <h2>2023</h2>
+          <ul class="paper-list">
+            <li>
+              <a href="2023%20Papers/index.html" target="_blank"
+                >See Papers of 2023</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="year-section" id="papers2022">
+          <h2>2022</h2>
+          <ul class="paper-list">
+            <li>
+              <a href="2022%20Papers/index.html" target="_blank"
+                >See Papers of 2022</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="year-section" id="papers2021">
+          <h2>2021</h2>
+          <ul class="paper-list">
+            <li>
+              <a href="2021%20Papers/index.html" target="_blank"
+                >See Papers of 2021</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="year-section" id="papers2020">
+          <h2>2020</h2>
+          <ul class="paper-list">
+            <li>
+              <a href="2020%20Papers/index.html" target="_blank"
+                >See Papers of 2020</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="year-section" id="papers2019">
+          <h2>2019</h2>
+          <ul class="paper-list">
+            <li>
+              <a href="2019%20Papers/index.html" target="_blank"
+                >See Papers of 2019</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="year-section" id="papers2018">
+          <h2>2018</h2>
+          <ul class="paper-list">
+            <li>
+              <a href="2018%20Papers/index.html" target="_blank"
+                >See Papers of 2018</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="year-section" id="papers2017">
+          <h2>2017</h2>
+          <ul class="paper-list">
+            <li>
+              <a href="2017%20Papers/index.html" target="_blank"
+                >See Papers of 2017</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="year-section" id="papers2016">
+          <h2>2016</h2>
+          <ul class="paper-list">
+            <li>
+              <a href="2016%20Papers/index.html" target="_blank"
+                >See Papers of 2016</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="year-section" id="papers2015">
+          <h2>2015</h2>
+          <ul class="paper-list">
+            <li>
+              <a href="2015%20Papers/index.html" target="_blank"
+                >See Papers of 2015</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="year-section" id="papers2014">
+          <h2>2014</h2>
+          <ul class="paper-list">
+            <li>
+              <a href="2014%20Papers/index.html" target="_blank"
+                >See Papers of 2014</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="year-section" id="papers2013">
+          <h2>2013</h2>
+          <ul class="paper-list">
+            <li>
+              <a href="2013%20Papers/index.html" target="_blank"
+                >See Papers of 2013</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <h2 class="subheading">Awards and features</h2>
+        <div class="awards-features-wrapper">
+          <div class="awards-features-carousel">
+            <div class="card">
+              <a
+                href="https://www.insmi.cnrs.fr/en/cnrsinfo/mathematician-florian-luca-member-ganda-irn-joins-cnrs-fellow-ambassador-programme"
+                target="_blank"
+              >
+                <img src="images/cnrs.png" alt="The GANDA IRN" />
+              </a>
+              <div class="text">2024 The GANDA IRN</div>
+            </div>
+            <div class="card">
+              <a
+                href="https://www.nrf.ac.za/about-us/nrf-awards/2022-2/a-rated-researchers-2022/professor-florian-luca/"
+                target="_blank"
+              >
+                <img src="images/NRF.jpg" alt="NRF A-Rated Researcher" />
+              </a>
+              <div class="text">NRF A-Rated Researcher</div>
+            </div>
+            <div class="card">
+              <a
+                href="https://www.assaf.org.za/2023/11/13/top-scholars-in-south-africa-honoured-6/"
+                target="_blank"
+              >
+                <img src="images/Assaf.png" alt="ASSAF Award" />
+              </a>
+              <div class="text">2023 ASSAF Award winner</div>
+            </div>
+            <div class="card">
+              <a
+                href="https://www.stias.ac.za/fellows/florian-luca/"
+                target="_blank"
+              >
+                <img src="images/stias-logo.jpg" alt="2023 STIAS Fellow" />
+              </a>
+              <div class="text">2023 STIAS Fellow</div>
+            </div>
+            <div class="card">
+              <a
+                href="https://www.gf.org/fellows/florian-luca/"
+                target="_blank"
+              >
+                <img src="images/Guggen.png" alt="2023 STIAS Fellow" />
+              </a>
+              <div class="text">2005 Guggenheim fellow</div>
+            </div>
+            <div class="card">
+              <a href="https://www.sams.ac.za/award-winners/" target="_blank">
+                <img src="images/Sams.png" alt="2017 SAMS Award" />
+              </a>
+              <div class="text">2017 SAMS Award winner</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="collaborations" id="collaborations">
+      <div class="max-width">
+        <h2 class="title">Collaborations</h2>
+        <div class="carousel owl-carousel" id="collaborations-carousel">
+          <div class="card">
+            <div class="text">Max Planck Society, Germany</div>
+            <p>
+              Florian Luca is a researcher affiliated with the Max Planck
+              Institute for Mathematics, where he has made significant
+              contributions to various areas of mathematics, particularly in
+              number theory and sequences. His work often involves exploring
+              properties and conjectures related to Fibonacci and Lucas
+              sequences.
+            </p>
+            <a
+              href="https://pure.mpg.de/cone/persons/resource/persons235728"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read more
+            </a>
+          </div>
+          <div class="card">
+            <div class="text">University of Bordeaux, France</div>
+            <p>
+              The partition function 𝑝 ( 𝑛 ) p(n) follows Benford's law for any
+              base 𝑏 ≥ 2 b≥2. A recent talk demonstrated that for any digit
+              string of length 𝑓 f in base 𝑏 b, there exists an 𝑛 ≤ 𝑁 ( 𝑏 , 𝑓 )
+              n≤N(b,f), where 𝑁 ( 𝑏 , 𝑓 ) = exp ⁡ ( 1 0 32 ( 𝑓 + 11 ) 2 ( log ⁡
+              𝑏 ) 3 ) N(b,f)=exp(10 32 (f+11) 2 (logb) 3 ), such that 𝑝 ( 𝑛 )
+              p(n) starts with that string. This result, which also applies to
+              the plane partition function, uses a lower bound technique from
+              Philippon and Waldschmidt.
+            </p>
+            <a
+              href="https://www.math.u-bordeaux.fr/imb/seminaire-theorie-des-nombres?all=true&limit=999&lang=fr"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read more
+            </a>
+          </div>
+          <div class="card">
+            <div class="text">Oxford University, United Kingdom</div>
+            <p>
+              The Skolem Problem is a mathematical question that asks whether a
+              given integer linear recurrence sequence (LRS) has a term that is
+              equal to zero. The problem has been open with little progress
+              since the 1980s. A recent new approach was initiated via the
+              notion of a Skolem set - a set of positive integers relative to
+              which the Skolem Problem is decidable.
+            </p>
+            <a
+              href="https://www.cs.ox.ac.uk/news/1909-full.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read more
+            </a>
+          </div>
+          <div class="card">
+            <div class="text">Hungarian Academy of Sciences</div>
+            <p>
+              As part of a program to enhance the international competitiveness
+              of Hungarian research, fourteen foreign researchers, including
+              Florian Luca, joined Hungarian research efforts in 2024 with
+              funding from the Hungarian Academy of Sciences (HAS). Florian Luca
+              collaborated with the Number Theory Research Group, led by
+              Professor Emeritus Kálmán Győry.
+            </p>
+            <a
+              href="https://edu.unideb.hu/news.php?id=1185"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read more
+            </a>
+          </div>
+        </div>
+        <div class="pagination-dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="max-width">
+        <h2 class="title">Contact me</h2>
+        <div class="background"></div>
+        <div class="contact-content">
+          <div class="column left">
+            <style>
+              .icons .row {
+                margin-bottom: 30px;
+              }
+            </style>
+            <div class="icons">
+              <div class="row">
+                <i class="fas fa-user"></i>
+                <div class="info">
+                  <div class="head">Name</div>
+                  <div class="sub-title">Prof Florian Luca</div>
+                </div>
+              </div>
+              <div class="row">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="info">
+                  <div class="head">Address</div>
+                  <div class="sub-title">
+                    University of Stellenbosch, Mathematics/Industrial
+                    Psychology Building, Merriman Street 7600 Stellenbosch,
+                    SOUTH AFRICA,
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <i class="fas fa-envelope"></i>
+                <div class="info">
+                  <div class="head">Email</div>
+                  <div class="sub-title">fluca@sun.ac.za</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column right">
+            <div class="text">Message me</div>
+            <form action="https://formspree.io/f/xrbzlzzv" method="POST">
+              <div class="fields">
+                <div class="field name">
+                  <input type="text" name="name" placeholder="Name" required />
+                </div>
+                <div class="field email">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="field">
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="Subject"
+                  required
+                />
+              </div>
+              <div class="field textarea">
+                <textarea
+                  name="message"
+                  cols="30"
+                  rows="10"
+                  placeholder="Message.."
+                  required
+                ></textarea>
+              </div>
+              <div class="field">
+                <label
+                  id="human-question-label"
+                  for="human_verification"
+                ></label>
+                <input
+                  type="text"
+                  id="human_verification"
+                  name="human_verification"
+                  placeholder="Your answer"
+                  required
+                />
+              </div>
+              <input
+                type="hidden"
+                name="submissionTimeUTC"
+                id="submissionTimeUTC"
+              />
+              <input
+                type="hidden"
+                name="submissionTimeLocal"
+                id="submissionTimeLocal"
+              />
+              <div class="button-area">
+                <button type="submit">Send message</button>
+              </div>
+            </form>
+            <div id="error-message" style="display: none; color: red"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- footer section start -->
+      <footer>
+        <span
+          >Created By
+          <a href="https://www.buwamabasadev.com">BuwaMabasaDev</a> |
+          <span class="far fa-copyright"></span> 2024 All rights reserved.</span
+        >
+        <div class="social-links">
+          <a href="https://x.com/Beeyy100" target="_blank">Twitter</a>
+          <a href="https://github.com/BeeCodeHub" target="_blank">GitHub</a>
+          <a
+            href="https://www.linkedin.com/in/buwa-mabasa-56615018b"
+            target="_blank"
+            >LinkedIn</a
+          >
+        </div>
+      </footer>
+    </section>
+    <script src="script.js"></script>
+  </body>
 </html>
