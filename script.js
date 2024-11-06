@@ -75,12 +75,6 @@ $(document).ready(function () {
       }
     });
 
-   // Additional Code - Trigger stats and collaborations on mobile load
-  if ($(window).width() <= 947) {
-    showStats();  // Trigger stats animation
-    $("#collaborations-carousel").trigger("refresh.owl.carousel");  // Refresh carousel for mobile view
-  }
-
   // Create pagination dots
   function createDots(numSlides) {
     console.log("Creating dots, numSlides:", numSlides);
