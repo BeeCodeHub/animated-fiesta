@@ -48,16 +48,13 @@ $(document).ready(function () {
     document.getElementById("logo").classList.add("fixed-logo");
   }
 
-  // Load event to ensure all elements are loaded
-  window.addEventListener("load", function () {
-    console.log("Window fully loaded, initializing collaborations carousel");
-
-    initializeCollaborationsCarousel(); // Carousel initialization
-    showStats(); // Initial stats display check
-  });
+  // Initialize the collaborations carousel on document ready
+  initializeCollaborationsCarousel();
 
   // Initialize the collaborations carousel
   function initializeCollaborationsCarousel() {
+    console.log("Initializing collaborations carousel");
+    
     $("#collaborations-carousel").owlCarousel({
       loop: false,
       margin: 0,
@@ -74,17 +71,22 @@ $(document).ready(function () {
     .on("initialized.owl.carousel", function (event) {
       console.log("Collaborations Carousel initialized");
       if ($(window).width() <= 947) {
-        createDots(event.item.count);
+        createDots(event.item.count);  // Only create dots for mobile size
       }
     })
     .on("changed.owl.carousel", function (event) {
       if ($(window).width() <= 947) {
-        updateDots(event.item.index);
+        updateDots(event.item.index);  // Update dots on carousel change
       }
     });
+
+    // Force reflow if the carousel doesn't show initially
+    setTimeout(function () {
+      $("#collaborations-carousel").trigger('refresh.owl.carousel');
+    }, 100);  // 100ms delay to ensure carousel is ready
   }
 
-  // Create pagination dots
+  // Create pagination dots for mobile view
   function createDots(numSlides) {
     console.log("Creating dots, numSlides:", numSlides);
     const paginationDotsContainer = $(".pagination-dots");
@@ -100,7 +102,7 @@ $(document).ready(function () {
     }
   }
 
-  // Update active dot
+  // Update active dot on carousel change
   function updateDots(activeIndex) {
     $(".dot").removeClass("active");
     $(".dot").eq(activeIndex).addClass("active");
