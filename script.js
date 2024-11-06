@@ -48,7 +48,8 @@ $(document).ready(function () {
     document.getElementById("logo").classList.add("fixed-logo");
   }
 
-  $("#collaborations-carousel").owlCarousel({
+  $(window).on("load", function () {
+   $("#collaborations-carousel").owlCarousel({
     loop: false,
     margin: 0,
     nav: true,
@@ -60,16 +61,18 @@ $(document).ready(function () {
       600: { items: 2 },
       1000: { items: 4 },
     },
-  }).on("initialized.owl.carousel", function (event) {
+   }).on("initialized.owl.carousel", function (event) {
     console.log("Collaborations Carousel initialized");
     if ($(window).width() <= 947) {
-      createDots(event.item.count); // Initialize dots only on mobile
+      createDots(event.item.count);
     }
-  }).on("changed.owl.carousel", function (event) {
+   }).on("changed.owl.carousel", function (event) {
     if ($(window).width() <= 947) {
-      updateDots(event.item.index); // Update dots on change only on mobile
+      updateDots(event.item.index);
     }
+   });
   });
+
 
   // Create pagination dots
   function createDots(numSlides) {
@@ -242,6 +245,21 @@ $(document).ready(function () {
       window.removeEventListener("scroll", showStats);
     }
   }
+
+  $(window).on("load", function () {
+    showStats(); // Trigger on page load as well
+  });
+
+  setTimeout(() => {
+    console.log("Showing stats");
+    statsContainer.classList.add("show");
+    statsCard.classList.add("show");
+    statItems.forEach((item, index) => {
+      setTimeout(() => {
+        item.classList.add("show");
+      }, index * 100);
+    });
+  }, 1000); // Reduced delay to 1 second
 
   window.addEventListener("scroll", showStats);
   showStats(); // Check on initial load
