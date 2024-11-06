@@ -48,29 +48,39 @@ $(document).ready(function () {
     document.getElementById("logo").classList.add("fixed-logo");
   }
 
+  function initializeCollaborationsCarousel() {
+    $("#collaborations-carousel").owlCarousel({
+        loop: false,
+        margin: 0,
+        nav: true,
+        items: 4,
+        autoplay: false,
+        autoplayTimeout: 2000,
+        responsive: {
+          0: { items: 1 },
+          600: { items: 2 },
+          1000: { items: 4 },
+        },
+    }).on("initialized.owl.carousel", function (event) {
+        console.log("Collaborations Carousel initialized");
+        if ($(window).width() <= 947) {
+          createDots(event.item.count);
+        }
+    }).on("changed.owl.carousel", function (event) {
+        if ($(window).width() <= 947) {
+          updateDots(event.item.index);
+        }
+    });
+  }
+
   $(window).on("load", function () {
-   $("#collaborations-carousel").owlCarousel({
-    loop: false,
-    margin: 0,
-    nav: true,
-    items: 4,
-    autoplay: false,
-    autoplayTimeout: 2000,
-    responsive: {
-      0: { items: 1 },
-      600: { items: 2 },
-      1000: { items: 4 },
-    },
-   }).on("initialized.owl.carousel", function (event) {
-    console.log("Collaborations Carousel initialized");
-    if ($(window).width() <= 947) {
-      createDots(event.item.count);
-    }
-   }).on("changed.owl.carousel", function (event) {
-    if ($(window).width() <= 947) {
-      updateDots(event.item.index);
-    }
-   });
+    console.log("Window fully loaded");
+
+    // Carousel initialization
+    initializeCollaborationsCarousel();
+
+    // Initial stats display check
+    showStats();
   });
 
 
@@ -246,8 +256,6 @@ $(document).ready(function () {
     }
   }
 
-  // Trigger animations on page load and scroll
-  $(window).on("load", function () {
-    showStats(); // Trigger on page load
-  });
+  window.addEventListener("scroll", showStats);
+  showStats(); // Check on initial load
 });
