@@ -250,11 +250,4 @@ $(document).ready(function () {
   $(window).on("load", function () {
     showStats(); // Trigger on page load
   });
-
-  // Adding a 1-second delay refresh
-  $(window).on("load", function () {
-    setTimeout(function () {
-      location.reload();
-    }, 1000);
-  });
 });
