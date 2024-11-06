@@ -246,21 +246,15 @@ $(document).ready(function () {
     }
   }
 
+  // Trigger animations on page load and scroll
   $(window).on("load", function () {
-    showStats(); // Trigger on page load as well
+    showStats(); // Trigger on page load
   });
 
-  setTimeout(() => {
-    console.log("Showing stats");
-    statsContainer.classList.add("show");
-    statsCard.classList.add("show");
-    statItems.forEach((item, index) => {
-      setTimeout(() => {
-        item.classList.add("show");
-      }, index * 100);
-    });
-  }, 1000); // Reduced delay to 1 second
-
-  window.addEventListener("scroll", showStats);
-  showStats(); // Check on initial load
+  // Adding a 1-second delay refresh
+  $(window).on("load", function () {
+    setTimeout(function () {
+      location.reload();
+    }, 1000);
+  });
 });
