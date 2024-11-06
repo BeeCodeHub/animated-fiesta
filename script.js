@@ -48,8 +48,9 @@ $(document).ready(function () {
     document.getElementById("logo").classList.add("fixed-logo");
   }
 
-  $(window).on('load', function() {
-    $("#collaborations-carousel").owlCarousel({
+    // Collaborations carousel
+  $("#collaborations-carousel")
+    .owlCarousel({
       loop: false,
       margin: 0,
       nav: true,
@@ -72,7 +73,6 @@ $(document).ready(function () {
       if ($(window).width() <= 947) {
         updateDots(event.item.index); // Update dots on change only on mobile
       }
-    });
   });
 
   // Create pagination dots
@@ -84,7 +84,7 @@ $(document).ready(function () {
     for (let i = 0; i < numSlides; i++) {
       const dot = $('<span class="dot"></span>');
       if (i === 0) {
-        dot.addClass("active"); // Set the first dot as active
+        dot.addClass("active");
       }
       dot.on("click", function () {
         $("#collaborations-carousel").trigger("to.owl.carousel", [i]);
