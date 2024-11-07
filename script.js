@@ -53,9 +53,12 @@ $(document).ready(function () {
     document.getElementById("logo").classList.add("fixed-logo");
   }
 
-  // Trigger stats animation when about section is in viewport
+  // Trigger stats animation when about section is in viewport or on page load
   showStats();
   window.addEventListener("scroll", showStats);
+
+  // Initialize papers section after document load
+  initializePapersSection();
 
   // Trigger the Fibonacci question
   correctAnswer = generateFibonacciQuestion();
@@ -79,7 +82,6 @@ $(document).ready(function () {
 function initializeCollaborationsCarousel() {
   console.log("Initializing Collaborations Carousel");
 
-  // Make sure Owl Carousel is initialized properly
   $("#collaborations-carousel").owlCarousel({
     loop: false,
     margin: 0,
@@ -106,10 +108,22 @@ function initializeCollaborationsCarousel() {
   });
 }
 
-// Show stats if the about section is in view
+// Initialize papers section with delayed loading
+function initializePapersSection() {
+  console.log("Initializing Papers Section");
+
+  // Simulate delay for loading papers after page load
+  setTimeout(function () {
+    const initialYear = $("#navbarYearDropdown").val() || $("#papersYearDropdown").val();
+    if (initialYear) showPapers(initialYear);
+  }, 200);
+}
+
+// Show stats if the about section is in view or load
 const aboutSection = document.querySelector(".about");
 function showStats() {
   if (isInViewport(aboutSection)) {
+    console.log("Showing stats section");
     $(".stats-container, .stats-card, .stat-item").addClass("show");
     window.removeEventListener("scroll", showStats);
   }
