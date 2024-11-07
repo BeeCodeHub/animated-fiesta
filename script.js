@@ -53,56 +53,19 @@ $(document).ready(function () {
     document.getElementById("logo").classList.add("fixed-logo");
   }
 
-  // Fibonacci anti-spam question
-  function fibonacci(n) {
-    let fib = [0, 1];
-    for (let i = 2; i <= n; i++) fib[i] = fib[i - 1] + fib[i - 2];
-    return fib[n];
-  }
+  // Trigger stats animation when about section is in viewport
+  showStats();
+  window.addEventListener("scroll", showStats);
 
-  function generateFibonacciQuestion() {
-    const randomN = Math.floor(Math.random() * 20) + 1;
-    const answer = fibonacci(randomN);
-    const label = document.getElementById("human-question-label");
-    if (label) label.textContent = `What is the ${randomN}th Fibonacci number? (Anti-spam)`;
-    return answer;
-  }
+  // Trigger the Fibonacci question
+  correctAnswer = generateFibonacciQuestion();
 
-  let correctAnswer = generateFibonacciQuestion();
-
-  // Form submission handler
-  document.querySelector("form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    console.log("Form submitted");
-
-    const userAnswer = parseInt(document.getElementById("human_verification").value);
-    if (userAnswer !== correctAnswer) {
-      alert("Incorrect answer to the math question. Please try again.");
-      correctAnswer = generateFibonacciQuestion();
-      return;
-    }
-
-    var formData = new FormData(this);
-    fetch(this.action, {
-      method: this.method,
-      body: formData,
-      headers: { Accept: "application/json" },
-    })
-    .then((response) => {
-      alert(response.ok ? "Thank you for your message!" : "Oops! There was a problem.");
-      if (response.ok) {
-        this.reset();
-        correctAnswer = generateFibonacciQuestion();
-      }
-    })
-    .catch(() => alert("Oops! There was a problem submitting your form."));
-  });
-
-  // Year dropdown change handler
+  // Year dropdown change handler for papers section
   $("#navbarYearDropdown, #papersYearDropdown, #yearDropdown").change(function(event) {
     const selectedYear = event.target.value;
     showPapers(selectedYear);
 
+    // Scroll to the selected year's section
     if (selectedYear) {
       const papersSection = document.getElementById("papers" + selectedYear);
       if (papersSection) {
@@ -110,34 +73,7 @@ $(document).ready(function () {
       }
     }
   });
-
-  function showPapers(year) {
-    $(".year-section").removeClass("active");
-    if (year) $("#papers" + year).addClass("active");
-  }
-
-  // Stats animation when in viewport
-  const aboutSection = document.querySelector(".about");
-  function showStats() {
-    if (isInViewport(aboutSection)) {
-      $(".stats-container, .stats-card, .stat-item").addClass("show");
-      window.removeEventListener("scroll", showStats);
-    }
-  }
-
-  window.addEventListener("scroll", showStats);
-
-  // Trigger stats immediately if already in view (helps on page load)
-  if (isInViewport(aboutSection)) {
-    showStats();
-  }
 });
-
-// Helper to check if an element is in viewport
-function isInViewport(element) {
-  const rect = element.getBoundingClientRect();
-  return rect.top < window.innerHeight && rect.bottom > 0;
-}
 
 // Initialize the collaborations carousel
 function initializeCollaborationsCarousel() {
@@ -170,7 +106,72 @@ function initializeCollaborationsCarousel() {
   });
 }
 
-// Create pagination dots
+// Show stats if the about section is in view
+const aboutSection = document.querySelector(".about");
+function showStats() {
+  if (isInViewport(aboutSection)) {
+    $(".stats-container, .stats-card, .stat-item").addClass("show");
+    window.removeEventListener("scroll", showStats);
+  }
+}
+
+// Helper function to check if an element is in the viewport
+function isInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  return rect.top < window.innerHeight && rect.bottom > 0;
+}
+
+// Form submission and Fibonacci anti-spam question
+function fibonacci(n) {
+  let fib = [0, 1];
+  for (let i = 2; i <= n; i++) fib[i] = fib[i - 1] + fib[i - 2];
+  return fib[n];
+}
+
+function generateFibonacciQuestion() {
+  const randomN = Math.floor(Math.random() * 20) + 1;
+  const answer = fibonacci(randomN);
+  const label = document.getElementById("human-question-label");
+  if (label) label.textContent = `What is the ${randomN}th Fibonacci number? (Anti-spam)`;
+  return answer;
+}
+
+let correctAnswer = generateFibonacciQuestion();
+
+document.querySelector("form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  console.log("Form submitted");
+
+  const userAnswer = parseInt(document.getElementById("human_verification").value);
+  if (userAnswer !== correctAnswer) {
+    alert("Incorrect answer to the math question. Please try again.");
+    correctAnswer = generateFibonacciQuestion();
+    return;
+  }
+
+  var formData = new FormData(this);
+  fetch(this.action, {
+    method: this.method,
+    body: formData,
+    headers: { Accept: "application/json" },
+  })
+  .then((response) => {
+    alert(response.ok ? "Thank you for your message!" : "Oops! There was a problem.");
+    if (response.ok) {
+      this.reset();
+      correctAnswer = generateFibonacciQuestion();
+    }
+  })
+  .catch(() => alert("Oops! There was a problem submitting your form."));
+});
+
+// Show papers based on year selection
+function showPapers(year) {
+  $(".year-section").removeClass("active");
+  if (year) $("#papers" + year).addClass("active");
+}
+
+// Create pagination dots for carousel
 function createDots(numSlides) {
   console.log("Creating dots, numSlides:", numSlides);
   const paginationDotsContainer = $(".pagination-dots");
@@ -186,7 +187,7 @@ function createDots(numSlides) {
   }
 }
 
-// Update active dot
+// Update active dot on carousel change
 function updateDots(activeIndex) {
   $(".dot").removeClass("active");
   $(".dot").eq(activeIndex).addClass("active");
