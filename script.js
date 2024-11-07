@@ -48,11 +48,6 @@ $(document).ready(function () {
     });
   }
 
-  // Fixed logo for home page
-  if (window.location.href.match(/\/(index.html|home)?$/)) {
-    document.getElementById("logo").classList.add("fixed-logo");
-  }
-
   // Trigger stats animation when about section is in viewport or on page load
   showStats();
   window.addEventListener("scroll", showStats);
