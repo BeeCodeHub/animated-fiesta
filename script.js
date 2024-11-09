@@ -124,13 +124,23 @@ function showStats() {
   }
 }
 
-// Helper function to check if an element is in the viewport
 function isInViewport(element) {
   const rect = element.getBoundingClientRect();
   return rect.top < window.innerHeight && rect.bottom > 0;
 }
 
-// Form submission and Fibonacci anti-spam question
+function getOrdinalSuffix(n) {
+  if (n % 10 === 1 && n % 100 !== 11) {
+    return 'st';
+  } else if (n % 10 === 2 && n % 100 !== 12) {
+    return 'nd';
+  } else if (n % 10 === 3 && n % 100 !== 13) {
+    return 'rd';
+  } else {
+    return 'th';
+  }
+}
+
 function fibonacci(n) {
   let fib = [0, 1];
   for (let i = 2; i <= n; i++) fib[i] = fib[i - 1] + fib[i - 2];
@@ -139,11 +149,13 @@ function fibonacci(n) {
 
 function generateFibonacciQuestion() {
   const randomN = Math.floor(Math.random() * 20) + 1;
+  const ordinal = getOrdinalSuffix(randomN);
   const answer = fibonacci(randomN);
   const label = document.getElementById("human-question-label");
-  if (label) label.textContent = `What is the ${randomN}th Fibonacci number? (Anti-spam)`;
+  if (label) label.textContent = `What is the ${randomN}${ordinal} Fibonacci number? (Anti-spam)`;
   return answer;
 }
+
 
 let correctAnswer = generateFibonacciQuestion();
 
