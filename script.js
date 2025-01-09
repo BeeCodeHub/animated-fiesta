@@ -1,6 +1,8 @@
 $(document).ready(function () {
   console.log("Document ready!");
 
+  $("#currentYear").text(new Date().getFullYear());
+
   // Initialize the collaborations carousel after a small delay
   setTimeout(function () {
     initializeCollaborationsCarousel();
